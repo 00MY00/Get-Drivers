@@ -882,11 +882,11 @@ function updateGit() {
         Write-Host "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" -ForegroundColor Magenta
         Write-Host ""
         $fileContent = Get-Content -Path ".\Version.GetDriver"
-        if ($fileContent -match "Dépasser") {
-            # "Le mot 'Dépasser' a été trouvé dans le fichier." ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
+        if ($fileContent -match "Depasser") {
+            # "Le mot 'Depasser' a été trouvé dans le fichier." ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
         } else {
             " " >> ".\Version.GetDriver"
-            "Dépasser" >> ".\Version.GetDriver"
+            "Depasser" >> ".\Version.GetDriver"
         }
     } else {
         Write-Host ""
@@ -931,8 +931,8 @@ function version($Path) {
 function upgradeGit() {         # Permet de metre à joure le programe
 
     $fileContent = Get-Content -Path ".\Version.GetDriver"
-    if ($fileContent -match "Dépasser") {
-        # "Le mot 'Dépasser' a été trouvé dans le fichier. Ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
+    if ($fileContent -match "Depasser") {
+        # "Le mot 'Depasser' a été trouvé dans le fichier. Ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
         if (-not (git --version 2>$null)) {
             # Erreur git n'est pas disponible 
             Start-Process ".\install.bat"
@@ -940,7 +940,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
         }
         else {
             if (Test-Path ".\Download\Get-Drivers") {
-                Remove-Item ".\Download\Get-Drivers" -Force
+                Remove-Item ".\Download\Get-Drivers" -Force -Confirm:$false
             }
         
             # Création de Backup
@@ -958,7 +958,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
         
             # Téléchargement de la nouvelle version disponible
             if (Test-Path ".\Download\Get-Drivers") {
-                Remove-Item ".\Download\Get-Drivers" -Force
+                Remove-Item ".\Download\Get-Drivers" -Force -Confirm:$false
             }
             git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download\Get-Drivers"
         
@@ -966,14 +966,14 @@ function upgradeGit() {         # Permet de metre à joure le programe
             if (Test-Path ".\Download\Get-Drivers") {
                 try {
                     Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
-                    Remove-Item ".\Backup" -Force 
-                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Force }
+                    Remove-Item ".\Backup" -Force -Confirm:$false
+                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Force -Confirm:$false }
                     Write-Host "Mise à joure réusit !" -ForegroundColor Green
                 } catch {
                     Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
                     try {
                         Copy-Item -Path ".\Backup\*" -Destination ".\" -Recurse -Force
-                        Remove-Item ".\Backup" -Force
+                        Remove-Item ".\Backup" -Force -Confirm:$false
                     } catch {
                         Write-Host "Erreur, la récupération a échoué !" -ForegroundColor Red
                     }
