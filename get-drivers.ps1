@@ -1,7 +1,7 @@
 ﻿################################
 # Crée par : Kuroakashiro
 ################################
-# Verssion : 0.3
+# Verssion : 0.5
 ###################################################################################
 # FUNCTION
 
@@ -965,7 +965,8 @@ function upgradeGit() {         # Permet de metre à joure le programe
             if (Test-Path ".\Download\Get-Drivers") {
                 try {
                     Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
-                    New-Item -ItemType Directory -Path ".\Backup"
+                    Remove-Item ".\Backup" -Force 
+                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Force }
                     Write-Host "Mise à joure réusit !" -ForegroundColor Green
                 } catch {
                     Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
