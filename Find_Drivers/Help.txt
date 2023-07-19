@@ -1,6 +1,0 @@
-executer 
-1 ) Find_Link.py				: crée une list d'url en récupérent les urls d'une page veb
-2 ) Find_Drivers_Link_On_Web_Page.py		: trie les urls premièrement récuperé et récupère les url de la page de téléchargement
-3 ) Creat_List_Of_Valid_Download_Link.py	: Récupère l'url de la page de téléchargement et l'ajout a une list qui peu etre utiliser par le programe
-
-
