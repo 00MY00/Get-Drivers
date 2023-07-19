@@ -1045,7 +1045,7 @@ $scriptDir = (Get-Item -Path ".\").FullName
 # Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
 if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
-    if ($Host.Runspace.IsRunspacePushed -and (-not $Host.Runspace.IsRunAsAdministrator)) {
+    if ($Host.Runspace.IsRunspacePushed -and (-not $Host.Runspace.IsRunAsAdministrator >$null)) {
         Write-Host "La session n'est pas en mode administrateur." -ForegroundColor Red
         Write-Host "Executer le script en Administrateur pour ajouter le chemin du programme" -ForegroundColor Magenta
     } else {
