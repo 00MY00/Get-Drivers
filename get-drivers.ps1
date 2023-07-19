@@ -1016,7 +1016,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
 #################################################################################
 # MAIN
 
-
+Set-Location "$PSScriptRoot"
 $NBParametre = $args.Count      # Récupère le nombre de paramètre
 $Parametres = @{}               # Crée un dictionnaire vide
 $currentKey = $null             # Variable pour stocker la clé actuelle
