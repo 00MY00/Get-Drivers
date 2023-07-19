@@ -1,0 +1,39 @@
+exit code 2 : command : install : erreur critique complaite : ci 1 une etape a échouer et une autre tentative a réusit
+b9SB48vt = command : serch : recherche dans le fichier list.GetDriver a échouer : exit code 1
+n7w2pJ9B = command : help : l'appel de la fonction help a échouer : exit code 1
+3wrPiS98 = command : serch : l'appel de la fonction serch a échouer : exit code 1
+T5sj22Gd = command : update : l'appel de la fonction update a échouer : exit code 1
+y6F6i6fP = command : list : l'appel de la fonction list a échouer : exit code 1
+Z8rPuS91 = command : install : l'appel de la fonction install a échouer : exit code 1 
+4G3irtJc = command : mydr : l'appel de la fonction mydr a échouer : exit code 1
+Z88Pll91 = command : upgrade : l'appel de la fonction upgrade a échouer : exit code 1
+yf5Eg7C2 = command : updateGit : l'appel de la fonction updateGit a échouer : exit code 1
+BfUEg6h2 = command : upgradeGit : l'appel de la fonction upgradeGit a échouer : exit code 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
