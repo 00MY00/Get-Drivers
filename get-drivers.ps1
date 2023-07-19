@@ -956,8 +956,10 @@ function upgradeGit() {         # Permet de metre à joure le programe
             }
         
             # Téléchargement de la nouvelle version disponible
-            Remove-Item ".\Download\Get-Drivers" -Force
-            git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download"
+            if (Test-Path ".\Download\Get-Drivers") {
+                Remove-Item ".\Download\Get-Drivers" -Force
+            }
+            git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download\Get-Drivers"
         
             # Appliquer la mise à jour. En cas d'échec, récupérer la sauvegarde.
             if (Test-Path ".\Download\Get-Drivers") {
