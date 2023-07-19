@@ -940,7 +940,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
         }
         else {
             if (Test-Path ".\Download\Get-Drivers") {
-                Remove-Item ".\Download\Get-Drivers" -Force -Confirm:$false
+                Remove-Item ".\Download\Get-Drivers" -Recurse -Force -Confirm:$false
             }
         
             # Création de Backup
@@ -958,7 +958,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
         
             # Téléchargement de la nouvelle version disponible
             if (Test-Path ".\Download\Get-Drivers") {
-                Remove-Item ".\Download\Get-Drivers" -Force -Confirm:$false
+                Remove-Item ".\Download\Get-Drivers" -Recurse -Force -Confirm:$false
             }
             git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download\Get-Drivers"
         
@@ -966,14 +966,14 @@ function upgradeGit() {         # Permet de metre à joure le programe
             if (Test-Path ".\Download\Get-Drivers") {
                 try {
                     Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
-                    Remove-Item ".\Backup" -Force -Confirm:$false
-                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Force -Confirm:$false }
+                    Remove-Item ".\Backup" -Recurse -Force -Confirm:$false
+                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Recurse -Force -Confirm:$false }
                     Write-Host "Mise à joure réusit !" -ForegroundColor Green
                 } catch {
                     Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
                     try {
                         Copy-Item -Path ".\Backup\*" -Destination ".\" -Recurse -Force
-                        Remove-Item ".\Backup" -Force -Confirm:$false
+                        Remove-Item ".\Backup" -Recurse -Force -Confirm:$false
                     } catch {
                         Write-Host "Erreur, la récupération a échoué !" -ForegroundColor Red
                     }
