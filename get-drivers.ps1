@@ -806,7 +806,7 @@ function upgrade($Str) {          # Permet de rechercher des drivers et avec la 
 function updateGit() {
     
     function UpdateGitVersion($Path) {
-        if (-not (Test-Path ".\Download\Version.GetDriver")) {
+        if (-not ($Path -eq ".\Download\Version.GetDriver")) {
             if (-not (Test-Path "$Path")) {
                 # Crée le fichier avec une valeur 0.0.1 pour forcer la mise à jour
                 "Version 0.0.1" | Out-File -FilePath $Path
