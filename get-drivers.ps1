@@ -950,20 +950,21 @@ function upgradeGit() {         # Permet de metre à joure le programe
             try {
                 Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force -Exclude (Split-Path ".\Backup" -Leaf)
                 Write-Host "Backup créé !" -ForegroundColor Green
-                New-Item -ItemType Directory -Path ".\Backup"
             } catch {
                 Write-Host "Erreur lors de la création de la sauvegarde." -ForegroundColor Red
                 exit(1)
             }
         
             # Téléchargement de la nouvelle version disponible
+            Remove-Item ".\Download\Get-Drivers" -Force
             git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download"
         
             # Appliquer la mise à jour. En cas d'échec, récupérer la sauvegarde.
             if (Test-Path ".\Download\Get-Drivers") {
                 try {
-                    Remove-Item ".\Download\Get-Drivers" -Force
                     Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
+                    New-Item -ItemType Directory -Path ".\Backup"
+                    Write-Host "Mise à joure réusit !" -ForegroundColor Green
                 } catch {
                     Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
                     try {
