@@ -948,8 +948,9 @@ function upgradeGit() {         # Permet de metre à joure le programe
             } 
         
             try {
-                Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force -Exclude ".\Backup"
+                Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force -Exclude (Split-Path ".\Backup" -Leaf)
                 Write-Host "Backup créé !" -ForegroundColor Green
+                New-Item -ItemType Directory -Path ".\Backup"
             } catch {
                 Write-Host "Erreur lors de la création de la sauvegarde." -ForegroundColor Red
                 exit(1)
