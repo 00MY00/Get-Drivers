@@ -938,17 +938,17 @@ function upgradeGit() {         # Permet de metre à joure le programe
             Write-Host "Erreur git ne fonctionne pas, vérifiez votre installation ou téléchargez-la. Si l'erreur persiste, installer GIT !" -ForegroundColor Red
         }
         else {
-            if (Test-Path ".\Downloads\Get-Drivers") {
-                Remove-Item ".\Downloads\Get-Drivers" -Force
+            if (Test-Path ".\Download\Get-Drivers") {
+                Remove-Item ".\Download\Get-Drivers" -Force
             }
         
             # Création de Backup
             if (-not (Test-Path ".\Backup")) {
                 New-Item -ItemType Directory -Path ".\Backup"
-            }
+            } 
         
             try {
-                Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force
+                Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force -Exclude ".\Backup"
                 Write-Host "Backup créé !" -ForegroundColor Green
             } catch {
                 Write-Host "Erreur lors de la création de la sauvegarde." -ForegroundColor Red
@@ -956,13 +956,13 @@ function upgradeGit() {         # Permet de metre à joure le programe
             }
         
             # Téléchargement de la nouvelle version disponible
-            git clone -f "https://github.com/00MY00/Get-Drivers.git" ".\Downloads"
+            git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download"
         
             # Appliquer la mise à jour. En cas d'échec, récupérer la sauvegarde.
-            if (Test-Path ".\Downloads\Get-Drivers") {
+            if (Test-Path ".\Download\Get-Drivers") {
                 try {
-                    Remove-Item ".\Downloads\Get-Drivers" -Force
-                    Copy-Item -Path ".\Downloads\Get-Drivers\*" -Destination ".\" -Recurse -Force
+                    Remove-Item ".\Download\Get-Drivers" -Force
+                    Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
                 } catch {
                     Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
                     try {
