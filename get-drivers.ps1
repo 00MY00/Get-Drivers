@@ -885,7 +885,7 @@ function updateGit() {
         if ($fileContent -match "Dépasser") {
             # "Le mot 'Dépasser' a été trouvé dans le fichier." ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
         } else {
-            "Dépasser" >> ".\Version.GetDriver"
+            "`nDépasser" >> ".\Version.GetDriver"
         }
     } else {
         Write-Host ""
