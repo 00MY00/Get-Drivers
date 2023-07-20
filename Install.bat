@@ -10,8 +10,6 @@ rem Utiliser Python 3.11.4
 rem !!!!!!!!!!!!!!!!!!!!!!
 
 
-rem Verifier que le répertoire .\Download existe
-if not exist ".\Download" mkdir ".\Download" & echo Creation du dossier de téléchargement !
 
 
 net session >nul 2>&1
@@ -42,6 +40,8 @@ if %errorlevel% equ 0 (
     echo L'exécution n'est pas en tant qu'administrateur.
 )
 
+rem Verifier que le répertoire .\Download existe
+if not exist ".\Download" mkdir ".\Download" & echo Creation du dossier de téléchargement !
 
 
 REM Mettre à jour le chemin d'accès actuel pour cette session
