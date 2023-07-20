@@ -68,7 +68,13 @@ if exist %INSTALLER_FILENAME% (
 )
 
 echo Installation de Python...
+echo Ci le script reste blocker trop longtempt entrer une touche pour continuer
 %INSTALLER_FILENAME% /quiet InstallAllUsers=1 PrependPath=1
+
+
+REM Mettre à jour le chemin d'accès actuel pour cette session
+set PATH=%PATH%;%script_dir%
+
 
 echo Nettoyage...
 del %INSTALLER_FILENAME%
