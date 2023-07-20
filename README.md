@@ -15,7 +15,7 @@
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
 - Start-Process -FilePath ".\Get-Drivers\Install.bat" -Verb RunAs
-- Start-Process -FilePath ".\Get-Drivers\Install.bat"
+
 -------------
 
 # Auteur : <button class="bouton-u">Kuroakashiro</button> <button class="bouton-u">00MY00</button>
