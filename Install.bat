@@ -75,6 +75,8 @@ rem echo Ci le script reste blocker trop longtempt entrer une touche pour contin
 REM Mettre à jour le chemin d'accès actuel pour cette session
 set PATH=%PATH%;%script_dir%
 
+if exist "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe" setx PATH "%PATH%;%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311"
+
 
 echo Nettoyage...
 del %INSTALLER_FILENAME%
