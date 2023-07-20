@@ -67,8 +67,8 @@ if exist %INSTALLER_FILENAME% (
     curl -o %INSTALLER_FILENAME% %PYTHON_URL%
 )
 
-echo Installation de Python...
-echo Ci le script reste blocker trop longtempt entrer une touche pour continuer
+echo Installation de Python en cours...
+rem echo Ci le script reste blocker trop longtempt entrer une touche pour continuer
 %INSTALLER_FILENAME% /quiet InstallAllUsers=1 PrependPath=1
 
 
