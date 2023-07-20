@@ -4,7 +4,7 @@
 -------------
 # Premier démarrage manuel
 - téléchargér l'archive. <span style="color: #00E4DA;">https://github.com/00MY00/Get-Drivers.git</span>
-- executer le script <span style="color: #0EE400;">'START.bat'</span> en administrateur la première fois.
+- executer le script <span style="color: #0EE400;">'Install.bat'</span> en administrateur la première fois.
 
 # Premier démarrage Powershell
 
@@ -14,7 +14,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
-- Start-Process -FilePath ".\Get-Drivers\START.bat" -Verb RunAs
+- Start-Process -FilePath ".\Get-Drivers\Install.bat" -Verb RunAs
 -------------
 
 # Auteur : <button class="bouton-u">Kuroakashiro</button> <button class="bouton-u">00MY00</button>
