@@ -16,18 +16,18 @@ function Help() {
                              
     Write-Host ""
     Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
-    Write-host "► Page d'aide"
+    Write-host "► Page d'aide" -ForegroundColor Yellow
     Write-Host "Syntaxe : Get-Driver -list 'tt' ou -list 'nourl' ou -help"-ForegroundColor Magenta
     Write-Host "Paramètre :" -ForegroundColor Green
     Write-Host "    -list ; Affiche la liste complaite des driveur disponible" -ForegroundColor Yellow
     Write-Host "    -version ; Affiche la version actuel" -ForegroundColor Yellow
-    Write-Host "    -serch 'txt' ; permet de fair une recherche parmi les drivers" -ForegroundColor Yellow
-    Write-Host "    -install 'txt'; permet d'installer un des driver" -ForegroundColor Yellow
-    Write-Host "    -update ; permet de mettre ajoure les list de drivers" -ForegroundColor Yellow
+    Write-Host "    -serch 'txt+txt' ; Permet de fair une recherche parmi les drivers" -ForegroundColor Yellow
+    Write-Host "    -install 'txt'; Permet d'installer un des driver" -ForegroundColor Yellow
+    Write-Host "    -update ; Permet de mettre ajoure les list de drivers" -ForegroundColor Yellow
     Write-Host "    -upgrade 'txt' ; Permet de fair une recherche de Drivers utiliser 'apply' permet d'ajouter les donnée récupéré" -ForegroundColor Yellow
-    Write-Host "    -updateGit ; permet de rechercher des mise a joure" -ForegroundColor Yellow
-    Write-Host "    -upgradeGit ; permet de télécharger et apliquer une nouvelle verssion" -ForegroundColor Yellow
-    Write-Host "    -help ; tous les autre argument qui suive sont ignioré" -ForegroundColor Yellow
+    Write-Host "    -updateGit ; Permet de rechercher des mise a joure" -ForegroundColor Yellow
+    Write-Host "    -upgradeGit ; Permet de télécharger et apliquer une nouvelle verssion" -ForegroundColor Yellow
+    Write-Host "    -help ; Affiche cet page d'aide" -ForegroundColor Yellow
     Write-Host "    -mydr ; Afficher les Drivers installé" -ForegroundColor Yellow
     Write-Host ""
     Write-Host ""
@@ -49,25 +49,85 @@ function serch($Str) {      # Permet de rechercher un des driver corespondant au
     Write-Host "Recherche en cours " -NoNewline -ForegroundColor Yellow
     Write-Host "..." -ForegroundColor Cyan
 
-    # Recherche dans le fichier 'list.GetDriver' qui contien tous les chemin des driveur
-    try {
-        $ContenuFichier = @(Get-Content -Path ".\list.GetDriver" | Select-String -Pattern $Str | ForEach-Object { $_.Line })
-    } catch {
-        Write-Host "Erreur 'b9SB48vt'" -ForegroundColor Red
-        exit(1)
+    if ($Str -eq "help") {
+        Write-Host ""
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        Write-host "► Page d'aide de '-serch'" -ForegroundColor Yellow
+        Write-Host "Syntaxe : Get-Driver -serch 'mot_1+mot_2'"-ForegroundColor Magenta
+        Write-Host "Paramètre :" -ForegroundColor Green
+        Write-Host "    -sech ; permet de fair une recherche parmi les drivers" -ForegroundColor Yellow
+        Write-Host "Valeur example :" -ForegroundColor Green
+        Write-Host "    'txt1+txt2'" -ForegroundColor Yellow
+        Write-Host "Info :" -ForegroundColor Green
+        Write-Host "    Il est possible de cherche plusieur mot" -ForegroundColor Yellow
+        Write-Host "    qui devrai etre dans la même ligne en les céparent avec le signe '+'" -ForegroundColor Yellow
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        exit(0)
     }
 
-    if (-not ($contenuFichier -eq "")) {
-        Write-Host "Contenu semblable trouvez"  -ForegroundColor Green
-        foreach ($txt in $ContenuFichier) {     # Affichage du contenu trouvée+
-            Write-Host "►" -NoNewline -ForegroundColor Yellow
-            Write-Host "    $txt" -NoNewline -ForegroundColor Cyan
-            Write-Host "◄" -ForegroundColor Yellow
+    # Verifit ci il y a des '+' permetent d'afiner la recherche
+
+    # Vérifier si la variable contient le signe '+'
+    if ($Str -match '\+') {
+        # Si le signe '+' est présent, récupérer chaque mot dans une liste en utilisant le caractère '+' comme séparateur
+        $listeMots = $Str -split '\+'
+        
+        # Charger le contenu du fichier dans une variable
+        $ContenuFichier = @(Get-Content -Path ".\list.GetDriver")
+
+        $lignesTrouvees = @()
+
+        # Parcourir chaque ligne du fichier
+        foreach ($ligne in $ContenuFichier) {
+            # Vérifier si la ligne contient tous les mots de la liste
+            $tousLesMotsPresent = $true
+            foreach ($mot in $listeMots) {
+                if ($ligne -notmatch $mot) {
+                    $tousLesMotsPresent = $false
+                    break
+                }
+            }
+
+            # Si tous les mots de la liste sont présents sur la ligne, ajouter la ligne à la liste des lignes trouvées
+            if ($tousLesMotsPresent) {
+                $lignesTrouvees += $ligne
+            }
         }
+
+
+        if (-not ($lignesTrouvees -eq "")) {
+            Write-Host "Contenu semblable trouvez"  -ForegroundColor Green
+            foreach ($txt in $lignesTrouvees) {     # Affichage du contenu trouvée+
+                Write-Host "►" -NoNewline -ForegroundColor Yellow
+                Write-Host "    $txt" -NoNewline -ForegroundColor Cyan
+                Write-Host "◄" -ForegroundColor Yellow
+            }
+        } else {
+            Write-Host "Aucunne Corespondance ! `nVérifiez que la list est actualiser '-update'" -ForegroundColor Red
+        }
+
     } else {
-        Write-Host "Aucunne Corespondance ! `nVérifiez que la list est actualiser '-update'" -ForegroundColor Red
+        #"La variable ne contient pas le signe '+'."
+        # Recherche dans le fichier 'list.GetDriver' qui contien tous les chemin des driveur
+        try {
+            $ContenuFichier = @(Get-Content -Path ".\list.GetDriver" | Select-String -Pattern "$Str" | ForEach-Object { $_.Line })
+        } catch {
+            Write-Host "Erreur 'b9SB48vt'" -ForegroundColor Red
+            exit(1)
+        }
+
+        if (-not ($contenuFichier -eq "")) {
+            Write-Host "Contenu semblable trouvez"  -ForegroundColor Green
+            foreach ($txt in $ContenuFichier) {     # Affichage du contenu trouvée+
+                Write-Host "►" -NoNewline -ForegroundColor Yellow
+                Write-Host "    $txt" -NoNewline -ForegroundColor Cyan
+                Write-Host "◄" -ForegroundColor Yellow
+            }
+        } else {
+            Write-Host "Aucunne Corespondance ! `nVérifiez que la list est actualiser '-update'" -ForegroundColor Red
+        }
+        
     }
-    
 
     # Découpage pour récupérer just le nom du driveur
 
@@ -175,6 +235,29 @@ function list($Str) {   # Permet d'afficher grosièrement le contenu de la liste
 
     # Les code couleur du caractère '►' Magenta = pas de filtre Blue fichier Driveur installer Yellow url de télécharement du driveur  cyant pour afficher le nombre de driveur
 
+
+    if ($Str -eq "help") {
+        Write-Host ""
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        Write-host "► Page d'aide de '-list'" -ForegroundColor Yellow
+        Write-Host "Syntaxe : Get-Driver -list tt, nourl, url"-ForegroundColor Magenta
+        Write-Host "Paramètre :" -ForegroundColor Green
+        Write-Host "    -list ; Affiche la liste complaite des driveur disponible" -ForegroundColor Yellow
+        Write-Host "Valeur example :" -ForegroundColor Green
+        Write-Host "    tt" -ForegroundColor Yellow
+        Write-Host "    nourl" -ForegroundColor Yellow
+        Write-Host "    url" -ForegroundColor Yellow
+        Write-Host "Info :" -ForegroundColor Green
+        Write-Host "    'tt' Affiche le totale de drivers dans la liste" -ForegroundColor Yellow
+        Write-Host "    'nourl' Affiche tous les driveur local" -ForegroundColor Yellow
+        Write-Host "    'url' Affiche tous les driveur non local" -ForegroundColor Yellow
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        exit(0)
+    }
+
+
+
+
     $cheminFichierTxt = ".\list.GetDriver"  # Spécifiez le chemin du fichier texte
 
     $contenuFichier = Get-Content -Path $cheminFichierTxt
@@ -243,6 +326,24 @@ function list($Str) {   # Permet d'afficher grosièrement le contenu de la liste
 ######################
 
 function  install($Str) {
+
+    if ($Str -eq "help") {
+        Write-Host ""
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        Write-host "► Page d'aide de '-install'" -ForegroundColor Yellow
+        Write-Host "Syntaxe : Get-Driver -install 'Nom_le_plus_proch.exe'"-ForegroundColor Magenta
+        Write-Host "Paramètre :" -ForegroundColor Green
+        Write-Host "    -install ; Permet d'installer un des driver" -ForegroundColor Yellow
+        Write-Host "Valeur example :" -ForegroundColor Green
+        Write-Host "    '0_x64_Software.exe'" -ForegroundColor Yellow
+        Write-Host "Info :" -ForegroundColor Green
+        Write-Host "    Récupérer le nom du driver dans la list de driver avec -list ou -serch" -ForegroundColor Yellow
+        Write-Host "    ajouter le nom du driveur en paramètre a -install" -ForegroundColor Yellow
+        Write-Host "    ci votre paramètre est semblable a plusieur autre " -ForegroundColor Yellow
+        Write-Host "    une list demendra de choisir parmi les 10 premier" -ForegroundColor Yellow
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        exit(0)
+    }
     
     function installLocal($ContenuFichier) {   # Permet de télécharger des Driveur télécharger dans la list Drivers
 
@@ -567,8 +668,6 @@ function  install($Str) {
     $ContenuFichier = Get-Content -Path ".\list.GetDriver" | Where-Object { $_ -match [regex]::Escape($Str) }
     $ContenuFichier = $ContenuFichier -replace "'", '' # Retire les apostrophes
 
-    Write-Host "Test '$ContenuFichier'"
-
     # Verifier ci plusieur Sortil corespond
     if ($ContenuFichier.Count -gt 1) {
         # "Le tableau contient plus d'une entrée."
@@ -642,6 +741,24 @@ function mydr() {       # Ajouter une valeur de choi de chause a afficher exampl
 ######################
 
 function upgrade($Str) {          # Permet de rechercher des drivers et avec la valeur apply elle sont ajoutée
+
+    if ($Str -eq "help") {
+        Write-Host ""
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        Write-host "► Page d'aide de '-upgrade'" -ForegroundColor Yellow
+        Write-Host "Syntaxe : Get-Driver -upgrade 'apply', 'applyold'"-ForegroundColor Magenta
+        Write-Host "Paramètre :" -ForegroundColor Green
+        Write-Host "    -upgrade ; Permet d'installer un des driver" -ForegroundColor Yellow
+        Write-Host "Valeur example :" -ForegroundColor Green
+        Write-Host "    'applyold'" -ForegroundColor Yellow
+        Write-Host "Info :" -ForegroundColor Green
+        Write-Host "     La commande permet de Metre a joure la list de driver de '-list' et 'serch'" -ForegroundColor Yellow
+        Write-Host "    'applyold' Permet d'applique une recherche de Driveur déja fait" -ForegroundColor Yellow
+        Write-Host "    'apply' execute une recherche de Driver en ligne et les applique à la liste" -ForegroundColor Yellow
+        Write-Host "    La commande sens paramètre va executer une recherche de driveur mai elle ne cera pas ajouté" -ForegroundColor Yellow
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        exit(0)
+    }
 
     function apply() {
         # Fonction pour nettoyer le nom du fichier en remplaçant les caractères spéciaux par des tirets
@@ -906,6 +1023,22 @@ function updateGit() {
 ######################
 
 function version($Path) {
+
+    if ($Str -eq "help") {
+        Write-Host ""
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        Write-host "► Page d'aide de '-version'" -ForegroundColor Yellow
+        Write-Host "Syntaxe : Get-Driver -version "-ForegroundColor Magenta
+        Write-Host "Paramètre :" -ForegroundColor Green
+        Write-Host "    -version ; Permet d'afficher la verssion installée" -ForegroundColor Yellow
+        Write-Host "Valeur example :" -ForegroundColor Green
+        Write-Host "    --" -ForegroundColor Yellow
+        Write-Host "Info :" -ForegroundColor Green
+        Write-Host "     La commande permet d'afficher la verssion actuelement installer" -ForegroundColor Yellow
+        Write-Host "     Pour verifier ci une autre verssion est disponible '-updateGit'" -ForegroundColor Yellow
+        Write-host "═══════════════════════════════════════════════════════════════" -ForegroundColor Cyan
+        exit(0)
+    }
     # Récupère la version du fichier mis en paramètre
     $VersionLocal = Get-Content -Path $Path -ErrorAction SilentlyContinue
 
