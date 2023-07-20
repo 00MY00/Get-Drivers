@@ -17,7 +17,7 @@ if not exist ".\Download" mkdir ".\Download" & echo Creation du dossier de tél�
 
 rem Ajout du script au Path
 REM Chemin complet du répertoire contenant le script
-set "script_dir=%back%get-drivers;"
+set "script_dir=%back%;"
 
 REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
 echo %PATH% | find /i "%script_dir%;" >nul
@@ -27,6 +27,8 @@ if errorlevel 1 (
     echo Ajout du répertoire au PATH...
     setx PATH "%PATH%;%script_dir%;" /M
     echo Le répertoire a été ajouté au PATH.
+    rem Changer pour que même en administrateur le répertoire racine soit le bon
+    echo exit
 ) else (
     echo Le répertoire est déjà présent dans le PATH.
 )
