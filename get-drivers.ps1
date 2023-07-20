@@ -1,7 +1,7 @@
 ﻿################################
 # Crée par : Kuroakashiro
 ################################
-# Verssion : 0.5
+# Verssion : 0.6
 ###################################################################################
 # FUNCTION
 
@@ -1060,6 +1060,9 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
     }
 } else {
     # "Le répertoire est déjà présent dans le PATH."
+    if (Test-Path ".\START.bat") {
+        Remove-Item ".\START.bat" -Force
+    }
 }
 
 # Mettre à jour le chemin d'accès actuel pour cette session
