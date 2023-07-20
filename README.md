@@ -49,8 +49,8 @@ Start-Process -FilePath ".\Get-Drivers\START.bat" -Verb RunAs
 
 
 
-
 <style>
+    /*-----------------------------------------------------------------------*/
     /* Style de base pour le bouton Windows*/
     .bouton-w {
       background-color: #0169C5; /* Vert */
