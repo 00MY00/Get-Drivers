@@ -23,7 +23,7 @@ Start-Process -FilePath ".\Get-Drivers\START.bat" -Verb RunAs
 
 - Get-Drivers est un outil en PowerShell qui permet d'avoir accès à une grande liste de drivers. Les drivers peuvent être téléchargés depuis l'outil, et celui-ci propose un script Python permettant de rechercher d'autres drivers. Get-Drivers ne contient pas beaucoup de drivers en local, mais des liens qui permettent une meilleure portabilité. Il est aussi possible d'ajouter ses propres drivers manuellement dans '.\Drivers\Nom_Du_Fabricant_de_drivers\Mon_Driver_local_exe'. Les formats de drivers supportés sont actuellement <span style="color: #0EE400;">EXE, ZIP, MSI</span>.
 
-
+-------------
 
 
 
