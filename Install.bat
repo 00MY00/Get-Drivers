@@ -14,30 +14,38 @@ rem Verifier que le répertoire .\Download existe
 if not exist ".\Download" mkdir ".\Download" & echo Creation du dossier de téléchargement !
 
 
+net session >nul 2>&1
+if %errorlevel% equ 0 (
+    echo L'exécution est en tant qu'administrateur.
+	rem Ajout du script au Path
+	REM Chemin complet du répertoire contenant le script
+	set "script_dir=%back%;"
 
-rem Ajout du script au Path
-REM Chemin complet du répertoire contenant le script
-set "script_dir=%back%;"
+	REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
+	echo %PATH% | find /i "%script_dir%;" >nul
 
-REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
-echo %PATH% | find /i "%script_dir%;" >nul
+	REM Si le chemin n'est pas trouvé (erreurlevel = 1), ajouter le répertoire au PATH
+	if errorlevel 1 (
+		echo Ajout du répertoire au PATH...
+		setx PATH "%PATH%;%script_dir%;" /M
+		echo Le répertoire a été ajouté au PATH.
+		powershell Set-ExecutionPolicy RemoteSigned
+		rem Changer pour que même en administrateur le répertoire racine soit le bon
+		echo exit
+	) else (
+		echo Le répertoire est déjà présent dans le PATH.
+	)
 
-REM Si le chemin n'est pas trouvé (erreurlevel = 1), ajouter le répertoire au PATH
-if errorlevel 1 (
-    echo Ajout du répertoire au PATH...
-    setx PATH "%PATH%;%script_dir%;" /M
-    echo Le répertoire a été ajouté au PATH.
-	powershell Set-ExecutionPolicy RemoteSigned
-    rem Changer pour que même en administrateur le répertoire racine soit le bon
-    echo exit
+	REM Mettre à jour le chemin d'accès actuel pour cette session
+	set PATH=%PATH%;%script_dir%
 ) else (
-    echo Le répertoire est déjà présent dans le PATH.
+    echo L'exécution n'est pas en tant qu'administrateur.
 )
+
+
 
 REM Mettre à jour le chemin d'accès actuel pour cette session
 set PATH=%PATH%;%script_dir%
-
-
 
 rem Vérification si Python est déjà installé
 python --version 2>nul
