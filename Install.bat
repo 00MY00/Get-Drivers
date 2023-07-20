@@ -86,7 +86,7 @@ python --version 2>nul
 if %errorlevel% == 0 (
     echo Python a été installé avec succès ! & goto Install-Pip
 ) else (
-    echo Une erreur s'est produite lors de l'installation de Python. & pause & exit
+    echo Une erreur s'est produite lors de l'installation de Python.
 )
 
 
