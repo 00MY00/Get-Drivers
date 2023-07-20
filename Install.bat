@@ -39,8 +39,9 @@ if %errorlevel% equ 0 (
     echo L'exécution n'est pas en tant qu'administrateur.
 )
 
+
 rem Verifier que le répertoire .\Download existe
-if not exist ".\Download" mkdir ".\Download" & echo Creation du dossier de téléchargement !
+if not exist "%back%Download" mkdir "%back%Download" & echo Creation du dossier de téléchargement !
 
 
 REM Mettre à jour le chemin d'accès actuel pour cette session
