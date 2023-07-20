@@ -43,6 +43,7 @@ if %errorlevel% equ 0 (
 rem Verifier que le répertoire .\Download existe
 if not exist "%back%Download" mkdir "%back%Download" & echo Creation du dossier de téléchargement !
 
+cd "%back%Download"
 
 REM Mettre à jour le chemin d'accès actuel pour cette session
 set PATH=%PATH%;%script_dir%
