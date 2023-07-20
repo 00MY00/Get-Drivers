@@ -28,8 +28,7 @@ if %errorlevel% equ 0 (
 		setx PATH "%PATH%;%script_dir%;" /M
 		echo Le répertoire a été ajouté au PATH.
 		powershell Set-ExecutionPolicy RemoteSigned
-		rem Changer pour que même en administrateur le répertoire racine soit le bon
-		echo exit
+		
 	) else (
 		echo Le répertoire est déjà présent dans le PATH.
 	)
