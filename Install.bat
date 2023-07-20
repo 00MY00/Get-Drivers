@@ -54,7 +54,7 @@ if %errorlevel% == 0 (
     python --version
     goto Install-Pip
 )
-if not exist "C:\Users\a.banziger\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python*" echo Il y a une erreur d'installation de Python. Veuillez vérifier que le chemin du programme est ajouté à la variable d'environnement 'Path'.
+if not exist "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe" echo Il y a une erreur d'installation de Python. Veuillez vérifier que le chemin du programme est ajouté à la variable d'environnement 'Path'.
 set PYTHON_URL=https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe
 set INSTALLER_FILENAME=python_installer.exe
 
@@ -89,7 +89,7 @@ if not %errorlevel% == 0 (
 	if exist "C:\Program Files\Git" echo il y a une erreur d'installation de Git verifier que le chemin du programme est ajouter a la variable d'environement 'Path' & pause & exit
     echo Git est pas installer !
 	rem Télécharger Git
-	if not exist ".\Download\GitSetup.exe" echo Téléchargement de Git... & curl -L -o GitSetup.exe https://objects.githubusercontent.com/github-production-release-asset-2e65be/23216272/e93af75b-8038-4c9d-b5e7-50504c6353ca?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230719T115705Z&X-Amz-Expires=300&X-Amz-Signature=4f101ca091fcf0e714c910d8fa2cb71b41bca3549997d17d53edb4eaa5bd0806&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=23216272&response-content-disposition=attachment%3B%20filename%3DGit-2.41.0.3-64-bit.exe&response-content-type=application%2Foctet-stream
+	if not exist "%back%Download\GitSetup.exe" echo Téléchargement de Git... & curl -L -o GitSetup.exe https://objects.githubusercontent.com/github-production-release-asset-2e65be/23216272/e93af75b-8038-4c9d-b5e7-50504c6353ca?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230719T115705Z&X-Amz-Expires=300&X-Amz-Signature=4f101ca091fcf0e714c910d8fa2cb71b41bca3549997d17d53edb4eaa5bd0806&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=23216272&response-content-disposition=attachment%3B%20filename%3DGit-2.41.0.3-64-bit.exe&response-content-type=application%2Foctet-stream
 
 	rem Installer Git (modifier le nom du fichier téléchargé si nécessaire)
 	echo Installation de Git...
