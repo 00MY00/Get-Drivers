@@ -24,24 +24,28 @@ if %errorlevel% == 0 (
         if /I "%%~P"=="%script_dir%" (
                 set "path_exists=1"
                 goto :FOUND
-        ) else (goto NOTFOUND)
+        )
     )
+	goto NOTFOUND
 
+     
 
-     :NOTFOUND
-      echo NOOOPPP
-      pause
-      echo Le répertoire est déjà présent dans le PATH.
-
-     :FOUND
-      echo OUIIII
-      pause
-      echo Ajout du répertoire au PATH...
-      powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\\Get-Drivers\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
-      echo Le répertoire a été ajouté au PATH.
-      powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
+    :NOFOUND
+     echo OUIIII
+     pause
+     echo Ajout du répertoire au PATH...
+     powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\\Get-Drivers\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
+     echo Le répertoire a été ajouté au PATH.
+     powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
     
-      
+    :FOUND
+     echo NOOOPPP
+     pause
+     echo Le répertoire est déjà présent dans le PATH.
+	  
+	  
+	  
+	  
     
 
        REM Mettre à jour le chemin d'accès actuel pour cette session
