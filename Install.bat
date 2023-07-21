@@ -66,9 +66,9 @@ if %errorlevel% == 0 (
 
 
 rem Verifier que le répertoire .\Download existe
-if not exist "%back%Download" mkdir "%back%Download" & echo Creation du dossier de téléchargement !
+if not exist "%USERPROFILE%\Get-Drivers\Download" mkdir "%USERPROFILE%\Get-Drivers\Download" & echo Creation du dossier de téléchargement !
 
-cd "%back%Download"
+cd "%USERPROFILE%\Get-Drivers\Download"
 
 REM Mettre à jour le chemin d'accès actuel pour cette session
 set PATH=%PATH%;%script_dir%
@@ -120,40 +120,37 @@ if %errorlevel% == 0 (
 rem Vérifier si Git est déjà installé
 git --version >nul 2>&1
 if not %errorlevel% == 0 (
-	if exist "C:\Program Files\Git" echo il y a une erreur d'installation de Git verifier que le chemin du programme est ajouter a la variable d'environement 'Path' & pause & exit
-    echo Git est pas installer !
-	rem Télécharger Git
-	if not exist "%back%Download\GitSetup.exe" echo Téléchargement de Git... & curl -L -o GitSetup.exe https://objects.githubusercontent.com/github-production-release-asset-2e65be/23216272/e93af75b-8038-4c9d-b5e7-50504c6353ca?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230719T115705Z&X-Amz-Expires=300&X-Amz-Signature=4f101ca091fcf0e714c910d8fa2cb71b41bca3549997d17d53edb4eaa5bd0806&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=23216272&response-content-disposition=attachment%3B%20filename%3DGit-2.41.0.3-64-bit.exe&response-content-type=application%2Foctet-stream
+    if exist "C:\Program Files\Git" (
+        echo Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'.
+        pause
+        exit
+    ) else (
+        echo Git n'est pas installé !
 
-	rem Installer Git (modifier le nom du fichier téléchargé si nécessaire)
-	echo Installation de Git...
-	start /wait GitSetup.exe /SILENT
+        rem Définir le répertoire de sauvegarde 
+        set "back=D:\MonRépertoire"
 
-	rem Nettoyer le fichier d'installation téléchargé
-	del GitSetup.exe
+        rem Télécharger Git s'il n'existe pas déjà dans le répertoire de sauvegarde
+        if not exist "%USERPROFILE%\Get-Drivers\Download\GitSetup.exe" (
+            echo Téléchargement de Git...
+            curl -L -o "%USERPROFILE%\Get-Drivers\Download\GitSetup.exe" https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/Git-2.41.0.3-64-bit.exe
+        )
 
-	rem Vérifier à nouveau si Git est installé après l'installation
-	git --version >nul 2>&1
-	if %errorlevel% == 0 (
-		echo Git a été installé avec succès.
-	) else (
-		echo Une erreur s'est produite lors de l'installation de Git.
-	)
-    
+        rem Installer Git (modifier le nom du fichier téléchargé si nécessaire)
+        echo Installation de Git...
+        start /wait "%USERPROFILE%\Get-Drivers\Download\GitSetup.exe" /SILENT
+
+        rem Vérifier à nouveau si Git est installé après l'installation
+        git --version >nul 2>&1
+        if %errorlevel% == 0 (
+            echo Git a été installé avec succès.
+        ) else (
+            echo Une erreur s'est produite lors de l'installation de Git.
+        )
+    )
+) else (
+    echo Git est déjà installé avec succès.
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
