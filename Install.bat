@@ -9,7 +9,7 @@ rem !!!!!!!!!!!!!!!!!!!!!!
 rem Utiliser Python 3.11.4
 rem !!!!!!!!!!!!!!!!!!!!!!
 
-set "path_exists=0"
+
 
 
 net session >nul 2>&1
@@ -20,25 +20,42 @@ if %errorlevel% == 0 (
     set "script_dir=%USERPROFILE%\Get-Drivers;"
 
     REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
-    for %%P in ("%PATH:;=" "%") do (
-    rem Vérifie si le chemin (%%P) est différent du chemin à retirer (%path_to_remove%)
-		if /I "%%~P" neq "%path_to_remove%" (
-			rem Ajoute le chemin (%%P) au nouveau PATH
-			set "new_path=!new_path!;%%~P"
-		)
-	)
+    set "path_to_check=%USERPROFILE%\Get-Drivers"
+	set "found=0"
 
      
+	 
+	 
+	rem Séparation du PATH en plusieurs chemins en utilisant des points-virgules
+	for %%P in ("%PATH:;=";"%") do (
+		rem Supprime les guillemets ajoutés autour de chaque chemin
+		set "path=%%~P"
 
-     echo OUIIII
-     pause
+		rem Affiche chaque chemin (pour des fins de vérification, vous pouvez le retirer si vous le souhaitez)
+		echo Chemin trouvé : !path!
+
+		rem Vérifie si le chemin (!path!) est identique au chemin à vérifier (%path_to_check%)
+		if /I "!path!"=="%path_to_check%" (
+			set "found=1"
+			goto :FOUND
+		)
+	)
+	 
+	goto :NOTFOUND
+	 
+	 
+	 
+	:NOTFOUND
+     rem ------------------------------
      echo Ajout du répertoire au PATH...
-     powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\\Get-Drivers\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
+     powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\Get-Drivers\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
      echo Le répertoire a été ajouté au PATH.
      powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
     
-	  
-    
+	
+    :FOUND
+	echo le chemin est déja ajouter !
+	
 
        REM Mettre à jour le chemin d'accès actuel pour cette session
        set "PATH=%PATH%;%script_dir%"
