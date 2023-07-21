@@ -27,7 +27,7 @@ if %errorlevel% equ 0 (
 		echo Ajout du répertoire au PATH...
 		setx PATH "%PATH%;%script_dir%;" /M
 		echo Le répertoire a été ajouté au PATH.
-		powershell -command "{Set-ExecutionPolicy RemoteSigned}"
+		powershell -ExecutionPolicy Bypass -command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
 		
 	) else (
 		echo Le répertoire est déjà présent dans le PATH.
