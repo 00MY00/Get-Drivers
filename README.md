@@ -4,16 +4,18 @@
 -------------
 # Premier démarrage manuel
 - téléchargér l'archive. <span style="color: #00E4DA;">https://github.com/00MY00/Get-Drivers.git</span>
+- décompréser l'archive dans le dossier <span style="color: #00E4DA;">'%USERPROFILE%'</span>
 - executer le script <span style="color: #0EE400;">'Install.bat'</span> en administrateur la première fois.
 
 # Premier démarrage Powershell
 
-- $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip"
-- $destinationFolder = "."
-- Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
-- Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-- Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-- Remove-Item "Get-Drivers.zip" | cd ".\Get-Drivers"
+- $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip";
+- $destinationFolder = "$env:USERPROFILE";
+- cd $destinationFolder;
+- Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip";
+- Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
+- Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
+- Remove-Item "Get-Drivers.zip" | cd ".\Get-Drivers";
 - Start-Process -FilePath ".\Install.bat" -Verb RunAs
 
 -------------
