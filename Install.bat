@@ -26,7 +26,7 @@ if %errorlevel% == 0 (
     if %errorlevel% == 1 (
         echo Ajout du répertoire au PATH...
         setx PATH "%PATH%;%script_dir%;" /M
-		powershell.exe -Command "$env:PATH += \"$pwd\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
+		powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
         echo Le répertoire a été ajouté au PATH.
         powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
     ) else (
