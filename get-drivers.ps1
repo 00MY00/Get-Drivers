@@ -969,7 +969,7 @@ function updateGit() {
 
     # récupération de la version locale
     if (Test-Path ".\Download\Get-Drivers") {
-        Remove-Item ".\Download\Get-Drivers"
+        Remove-Item ".\Download\Get-Drivers" -Recurse -Force
     }
     try {
         $LocalVersion = UpdateGitVersion(".\Version.GetDriver")
