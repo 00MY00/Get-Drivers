@@ -20,14 +20,12 @@ if %errorlevel% == 0 (
     set "script_dir=%USERPROFILE%\Get-Drivers;"
 
     REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
-    for %%P in ("!PATH:;=" "!") do (
+    for %%P in ("%PATH:;=" "%") do (
         if /I "%%~P"=="%script_dir%" (
-            if /I "%%~fI"=="%%~fP" (
                 set "path_exists=1"
                 goto :FOUND
-            ) else (goto NOTFOUND)
-        )
-     )
+        ) else (goto NOTFOUND)
+    )
 
 
      :NOTFOUND
