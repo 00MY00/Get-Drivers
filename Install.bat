@@ -9,7 +9,7 @@ rem !!!!!!!!!!!!!!!!!!!!!!
 rem Utiliser Python 3.11.4
 rem !!!!!!!!!!!!!!!!!!!!!!
 
-
+set "path_exists=0"
 
 
 net session >nul 2>&1
@@ -17,24 +17,37 @@ if %errorlevel% == 0 (
     echo L'exécution est en tant qu'administrateur.
     rem Ajout du script au Path
     REM Chemin complet du répertoire contenant le script
-    set "script_dir=%back:~0,-1%;"
+    set "script_dir=%USERPROFILE%\Get-Drivers;"
 
     REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
-    echo %PATH% | find /i "%script_dir%;" >nul
+    for %%P in ("!PATH:;=" "!") do (
+        if /I "%%~P"=="%script_dir%" (
+            if /I "%%~fI"=="%%~fP" (
+                set "path_exists=1"
+                goto :FOUND
+            ) else (goto NOTFOUND)
+        )
+     )
 
-    REM Si le chemin n'est pas trouvé (erreurlevel = 1), ajouter le répertoire au PATH
-    if %errorlevel% == 1 (
-        echo Ajout du répertoire au PATH...
-        setx PATH "%PATH%;%script_dir%;" /M
-		powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\Get-Drivers"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
-        echo Le répertoire a été ajouté au PATH.
-        powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
-    ) else (
-        echo Le répertoire est déjà présent dans le PATH.
-    )
 
-    REM Mettre à jour le chemin d'accès actuel pour cette session
-    set "PATH=%PATH%;%script_dir%"
+     :NOTFOUND
+      echo NOOOPPP
+      pause
+      echo Le répertoire est déjà présent dans le PATH.
+
+     :FOUND
+      echo OUIIII
+      pause
+      echo Ajout du répertoire au PATH...
+      powershell.exe -Command "$env:PATH += \"$env:USERPROFILE\\Get-Drivers\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
+      echo Le répertoire a été ajouté au PATH.
+      powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
+    
+      
+    
+
+       REM Mettre à jour le chemin d'accès actuel pour cette session
+       set "PATH=%PATH%;%script_dir%"
 ) else (
     echo L'exécution n'est pas en tant qu'administrateur.
 )
