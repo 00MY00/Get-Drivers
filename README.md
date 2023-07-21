@@ -13,8 +13,8 @@
 - Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-- Remove-Item "Get-Drivers.zip"
-- Start-Process -FilePath ".\Get-Drivers\Install.bat" -Verb RunAs
+- Remove-Item "Get-Drivers.zip" | cd ".\Get-Drivers"
+- Start-Process -FilePath ".\Install.bat" -Verb RunAs
 
 -------------
 
