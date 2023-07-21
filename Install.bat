@@ -17,7 +17,7 @@ if %errorlevel% == 0 (
     echo L'exécution est en tant qu'administrateur.
     rem Ajout du script au Path
     REM Chemin complet du répertoire contenant le script
-    set "script_dir=%back%;"
+    set "script_dir=%back:~0,-1%;"
 
     REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
     echo %PATH% | find /i "%script_dir%;" >nul
@@ -26,7 +26,7 @@ if %errorlevel% == 0 (
     if %errorlevel% == 1 (
         echo Ajout du répertoire au PATH...
         setx PATH "%PATH%;%script_dir%;" /M
-		powershell.exe -Command "$env:PATH += \";$PWD\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
+		powershell.exe -Command "$env:PATH += \";%script_dir%\"; [System.Environment]::SetEnvironmentVariable(\"PATH\", $env:PATH, \"Machine\")"
         echo Le répertoire a été ajouté au PATH.
         powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
     ) else (
