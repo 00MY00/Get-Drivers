@@ -13,7 +13,7 @@ rem !!!!!!!!!!!!!!!!!!!!!!
 
 
 net session >nul 2>&1
-if %errorlevel% equ 0 (
+if %errorlevel% == 0 (
     echo L'exécution est en tant qu'administrateur.
 	rem Ajout du script au Path
 	REM Chemin complet du répertoire contenant le script
@@ -23,11 +23,11 @@ if %errorlevel% equ 0 (
 	echo %PATH% | find /i "%script_dir%;" >nul
 
 	REM Si le chemin n'est pas trouvé (erreurlevel = 1), ajouter le répertoire au PATH
-	if errorlevel 1 (
+	if %errorlevel% == 1 (
 		echo Ajout du répertoire au PATH...
 		setx PATH "%PATH%;%script_dir%;" /M
 		echo Le répertoire a été ajouté au PATH.
-		powershell -ExecutionPolicy Bypass -command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+		echo Y | powershell -command "Set-ExecutionPolicy RemoteSigned"
 		
 	) else (
 		echo Le répertoire est déjà présent dans le PATH.
