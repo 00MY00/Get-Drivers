@@ -21,16 +21,15 @@ if %errorlevel% == 0 (
 
     REM Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
     for %%P in ("%PATH:;=" "%") do (
-        if /I "%%~P"=="%script_dir%" (
-                set "path_exists=1"
-                goto :FOUND
-        )
-    )
-	goto NOTFOUND
+    rem Vérifie si le chemin (%%P) est différent du chemin à retirer (%path_to_remove%)
+		if /I "%%~P" neq "%path_to_remove%" (
+			rem Ajoute le chemin (%%P) au nouveau PATH
+			set "new_path=!new_path!;%%~P"
+		)
+	)
 
      
 
-    :NOFOUND
      echo OUIIII
      pause
      echo Ajout du répertoire au PATH...
@@ -38,13 +37,6 @@ if %errorlevel% == 0 (
      echo Le répertoire a été ajouté au PATH.
      powershell -command "Set-ExecutionPolicy RemoteSigned -Force"
     
-    :FOUND
-     echo NOOOPPP
-     pause
-     echo Le répertoire est déjà présent dans le PATH.
-	  
-	  
-	  
 	  
     
 
