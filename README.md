@@ -16,7 +16,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
 - Remove-Item "Get-Drivers.zip" | cd ".\Get-Drivers";
-- Start-Process -FilePath ".\Install.bat" -Verb RunAs
+- Start-Process -FilePath ".\Get-Driver\Install.bat" -Verb RunAs
 
 -------------
 
