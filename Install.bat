@@ -163,9 +163,9 @@ if not %errorlevel% == 0 (
 
 :Install-Pip
 pip --version 2>nul
-if %errorlevel% == 1 (python get-pip.py & echo PIP est installer !) else (echo PIP est installer !)
+if %errorlevel% == 0 (python get-pip.py & echo PIP est installer !) else (echo PIP est pas installer !)
 pip --version 2>nul
-if %errorlevel% == 0 (goto Pip-Install) else (echo erreur d'installation de PIP & pause & exit)
+if %errorlevel% == 0 (goto Pip-Install) else (echo erreur d'installation de PIP )
 
 
 
