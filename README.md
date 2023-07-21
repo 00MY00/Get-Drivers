@@ -5,7 +5,7 @@
 # Premier démarrage manuel
 - téléchargér l'archive. <span style="color: #00E4DA;">https://github.com/00MY00/Get-Drivers.git</span>
 - décompréser l'archive dans le dossier <span style="color: #00E4DA;">'%USERPROFILE%'</span>
-- executer le script <span style="color: #0EE400;">'Install.bat'</span> en administrateur la première fois.
+- executer le script <span style="color: #0EE400;">'Install.bat'</span> en administrateur.
 
 # Premier démarrage Powershell
 
