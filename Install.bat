@@ -15,21 +15,20 @@ if exist "admin.txt" del admin.txt
 if exist "t.txt" del t.txt
 for /F  "skip=21 eol=* tokens=5,6*" %%i IN (admin.txt) Do @echo %%i >> t.txt
 set /p DroiAdmin=< t.txt
-net user %USERNAME% >> admin.txt
+rem net user %USERNAME% >> admin.txt
 set DroiAdmin=%DroiAdmin:~1%
 if exist "admin.txt" del admin.txt
 if exist "t.txt" del t.txt
 rem récupère le nom du group administrateur
 for /F "tokens=1" %G in ('net localgroup ^| find /I "Admin"') do @echo %G > t.txt
 set /p Administrateurs=< t.txt
-set Administrateurs=%Administrateurs:~1%
+set Administrateurs=%Administrateurs:~1,-1%
 if exist "t.txt" del t.txt
 cls 
 
 
+pause
 
-
-net session >nul 2>&1
 if %DroiAdmin% == %Administrateurs% (
     echo L'exécution est en tant qu'administrateur.
     rem Ajout du script au Path
