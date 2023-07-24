@@ -153,7 +153,6 @@ if ($wingetInstalled -eq "n") {
     if ($LASTEXITCODE -ne 0) {
         if (Test-Path "C:\Program Files\Git") {
             Write-Host "Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'."
-            Pause
             exit
         } else {
             Write-Host "Git n'est pas installé !"
@@ -185,7 +184,7 @@ if ($wingetInstalled -eq "n") {
     }
 }
 
-:Install-Pip
+
 $pipVersion = & pip --version 2>$null
 if ($LASTEXITCODE -eq 0) {
     & python get-pip.py
@@ -194,20 +193,14 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "PIP n'est pas installé !"
 }
 
-$pipVersion = & pip --version 2>$null
-if ($LASTEXITCODE -eq 0) {
-    goto Pip-Install
-} else {
-    Write-Host "Erreur d'installation de PIP."
-}
 
-:Pip-Install
 & pip install --upgrade requests 2>$null
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Installation de requests [OK]"
 } else {
     Write-Host "Installation de requests [ERREUR]"
 }
+
 
 & pip install --upgrade bs4 2>$null
 if ($LASTEXITCODE -eq 0) {
@@ -216,12 +209,14 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "Installation de bs4 [ERREUR]"
 }
 
+
 & pip install --upgrade urljoin 2>$null
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Installation de urljoin [OK]"
 } else {
     Write-Host "Installation de urljoin [ERREUR]"
 }
+
 
 if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
     Write-Host "Erreur le chemin n'est pas ajoutée corectement !"
