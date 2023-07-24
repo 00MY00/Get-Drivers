@@ -32,12 +32,12 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
 
 winget --version 2>$null
-if ($LASTEXITCODE -ne 0) {
+if (!$?) {
     Write-Host "Winget n'est pas installé !"
     Write-Host "Téléchargement" -NoNewline
     Write-Host "..." -ForegroundColor Cyan
     Install-Module -Name Microsoft.WinGet.Client -Force
-    if ($LASTEXITCODE -ne 0) {
+    if (!$?) {
         Write-Host "Installation réusit !" -ForegroundColor Green
         $wingetInstalled = "y"
     } else {
@@ -78,7 +78,7 @@ if ($wingetInstalled -eq "y") {
 
     # Vérification de la version installée de Python
     $pythonVersion = & python --version 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    if (!$?) {
         Write-Host "Python a été installé avec succès !" -ForegroundColor Green
     } else {
         Write-Host "Une erreur s'est produite lors de l'installation de Python." -ForegroundColor Red
@@ -86,7 +86,7 @@ if ($wingetInstalled -eq "y") {
 
     # Vérification de la version installée de Git
     $gitVersion = & git --version 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    if (!$?) {
         Write-Host "Git a été installé avec succès." -ForegroundColor Green
     } else {
         Write-Host "Une erreur s'est produite lors de l'installation de Git." -ForegroundColor Red
@@ -105,7 +105,7 @@ if ($wingetInstalled -eq "n") {
 
     # Vérifier si Python est déjà installé
     $pythonVersion = & python --version 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    if (!$?) {
         Write-Host "Python est déjà installé. Vérification de la version" -ForegroundColor Green
         & python --version
     }
@@ -143,7 +143,7 @@ if ($wingetInstalled -eq "n") {
 
     # Vérification de la version installée de Python
     $pythonVersion = & python --version 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    if (!$?) {
         Write-Host "Python a été installé avec succès !" -ForegroundColor Green
     } else {
         Write-Host "Une erreur s'est produite lors de l'installation de Python." -ForegroundColor Red
@@ -151,7 +151,7 @@ if ($wingetInstalled -eq "n") {
 
     # Vérifier si Git est déjà installé
     $gitVersion = & git --version 2>$null
-    if ($LASTEXITCODE -ne 0) {
+    if (!$?) {
         if (Test-Path "C:\Program Files\Git") {
             Write-Host "Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'." -ForegroundColor Red
             exit
@@ -175,7 +175,7 @@ if ($wingetInstalled -eq "n") {
 
             # Vérifier à nouveau si Git est installé après l'installation
             $gitVersion = & git --version 2>$null
-            if ($LASTEXITCODE -eq 0) {
+            if (!$?) {
                 Write-Host "Git a été installé avec succès." -ForegroundColor Green
             } else {
                 Write-Host "Une erreur s'est produite lors de l'installation de Git." -ForegroundColor Red
@@ -188,7 +188,7 @@ if ($wingetInstalled -eq "n") {
 
 
 $pipVersion = & pip --version 2>$null
-if ($LASTEXITCODE -eq 0) {
+if (!$?) {
     & python get-pip.py
     Write-Host "PIP est installé !" -ForegroundColor Green
 } else {
@@ -197,7 +197,7 @@ if ($LASTEXITCODE -eq 0) {
 
 
 & pip install --upgrade requests 2>$null
-if ($LASTEXITCODE -eq 0) {
+if (!$?) {
     Write-Host "Installation de requests" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
 } else {
@@ -207,7 +207,7 @@ if ($LASTEXITCODE -eq 0) {
 
 
 & pip install --upgrade bs4 2>$null
-if ($LASTEXITCODE -eq 0) {
+if (!$?) {
     Write-Host "Installation de bs4" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
 } else {
@@ -217,7 +217,7 @@ if ($LASTEXITCODE -eq 0) {
 
 
 & pip install --upgrade urljoin 2>$null
-if ($LASTEXITCODE -eq 0) {
+if (!$?) {
     Write-Host "Installation de urljoin" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
 } else {
