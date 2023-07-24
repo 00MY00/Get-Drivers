@@ -6,7 +6,7 @@ Set-ExecutionPolicy Unrestricted
 $Back = $PWD
 
 Set-Location "$env:USERPROFILE\Get-Drivers"
-$scriptDir = "$env:USERPROFILE\Get-Drivers\Download"
+$scriptDir = "$env:USERPROFILE\Get-Drivers"
 
 
 # Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
@@ -224,6 +224,8 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
         Remove-Item ".\Install.ps1" -Force
     }
 }
+
+Set-Location "$back"
 
 
 exit(0)
