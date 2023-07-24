@@ -16,7 +16,7 @@
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
 - Set-ExecutionPolicy Restricted -Force
-- Invoke-Expression -Command "$destinationFolder\Get-Drivers\Install.ps1" -Verb RunAs
+- Start-Process -FilePath "$destinationFolder\Get-Drivers\Install.ps1" -Verb RunAs
 -------------
 
 # Auteur : <button class="bouton-u">Kuroakashiro</button> <button class="bouton-u">00MY00</button>
@@ -37,7 +37,8 @@
      Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
      Remove-Item "Get-Drivers.zip"
      Set-ExecutionPolicy Restricted -Force # Nécécite drois Administrateur
-     Invoke-Expression -Command "$destinationFolder\Get-Drivers\Install.ps1" -Verb RunAs
+     Start-Process -FilePath "$destinationFolder\Get-Drivers\Install.ps1" -Verb RunAs
+
 
 
 
