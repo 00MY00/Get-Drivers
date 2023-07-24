@@ -1,7 +1,7 @@
 ﻿################################
 # Crée par : Kuroakashiro
 ################################
-# Verssion : 0.7
+# Verssion : 0.8
 ###################################################################################
 # FUNCTION
 
@@ -968,9 +968,6 @@ function updateGit() {
     }
 
     # récupération de la version locale
-    if (Test-Path ".\Download\Get-Drivers") {
-        Remove-Item ".\Download\Get-Drivers" -Recurse -Force
-    }
     try {
         $LocalVersion = UpdateGitVersion(".\Version.GetDriver")
     } catch {
@@ -1068,6 +1065,62 @@ function upgradeGit() {         # Permet de metre à joure le programe
 
     $fileContent = Get-Content -Path ".\Version.GetDriver"
     if ($fileContent -match "Depasser") {
+        # "Le mot 'Depasser' a été trouvé dans le fichier. Ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
+        if (-not (git --version 2>$null)) {
+            # Erreur git n'est pas disponible 
+            Start-Process ".\install.bat"
+            Write-Host "Erreur git ne fonctionne pas, vérifiez votre installation ou téléchargez-la. Si l'erreur persiste, installer GIT !" -ForegroundColor Red
+        }
+        else {
+            if (Test-Path ".\Download\Get-Drivers") {
+                Remove-Item ".\Download\Get-Drivers" -Recurse -Force -Confirm:$false
+            }
+        
+            # Création de Backup
+            if (-not (Test-Path ".\Backup")) {
+                New-Item -ItemType Directory -Path ".\Backup"
+            } 
+        
+            try {
+                Copy-Item -Path ".\*" -Destination ".\Backup" -Recurse -Force -Exclude (Split-Path ".\Backup" -Leaf)
+                Write-Host "Backup créé !" -ForegroundColor Green
+            } catch {
+                Write-Host "Erreur lors de la création de la sauvegarde." -ForegroundColor Red
+                exit(1)
+            }
+        
+            # Téléchargement de la nouvelle version disponible
+            if (Test-Path ".\Download\Get-Drivers") {
+                Remove-Item ".\Download\Get-Drivers" -Recurse -Force -Confirm:$false
+            }
+            if (Test-Path ".\.git") {Remove-Item ".\.git" -Recurse -Force -Confirm:$false }
+            git clone "https://github.com/00MY00/Get-Drivers.git" ".\Download\Get-Drivers"
+        
+            # Appliquer la mise à jour. En cas d'échec, récupérer la sauvegarde.
+            if (Test-Path ".\Download\Get-Drivers") {
+                try {
+                    Copy-Item -Path ".\Download\Get-Drivers\*" -Destination ".\" -Recurse -Force
+                    Remove-Item ".\Backup" -Recurse -Force -Confirm:$false
+                    if (Test-Path ".\.git") {Remove-Item ".\.git" -Recurse -Force -Confirm:$false }
+                    Write-Host "Mise à joure réusit !" -ForegroundColor Green
+                } catch {
+                    Write-Host "Erreur lors de la mise à jour, récupération en cours !" -ForegroundColor Red
+                    try {
+                        Copy-Item -Path ".\Backup\*" -Destination ".\" -Recurse -Force
+                        Remove-Item ".\Backup" -Recurse -Force -Confirm:$false
+                    } catch {
+                        Write-Host "Erreur, la récupération a échoué !" -ForegroundColor Red
+                    }
+                }
+            }
+        }
+    } else {
+        Write-Host "Erreur votre Verssion n'as pas besoin de mise à jour" -ForegroundColor Red
+        Write-Host "Entrez -updateGit pour chercher les mis à jour disponible" -ForegroundColor Red
+    }
+
+    # En cas d'erreur de format UTF-8
+    if ($fileContent -match "D e p a s s e r") {
         # "Le mot 'Depasser' a été trouvé dans le fichier. Ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
         if (-not (git --version 2>$null)) {
             # Erreur git n'est pas disponible 
