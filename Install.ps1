@@ -1,5 +1,5 @@
 ﻿#Retirer la réstriction d'execution de code powershell
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted -Force
 
 
 
