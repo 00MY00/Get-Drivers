@@ -1,17 +1,20 @@
-﻿# Retirer la réstriction d'exécution de code powershell
+﻿#Retirer la réstriction d'execution de code powershell
 # Set-ExecutionPolicy Unrestricted -Force
 
-# Pour revenir au répertoire de base
+
+# Pour revenire au répertoire de base
 $Back = $PWD
 
 Set-Location "$env:USERPROFILE\Get-Drivers"
 $scriptDir = "$env:USERPROFILE\Get-Drivers"
 
+
 # Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
 if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
-    if ($Host.Runspace.IsRunspacePushed -and (-not $Host.Runspace.IsRunAsAdministrator -eq $true)) {
+
+    if ($Host.Runspace.IsRunspacePushed -and (-not $Host.Runspace.IsRunAsAdministrator >$null)) {
         Write-Host "La session n'est pas en mode administrateur." -ForegroundColor Red
-        Write-Host "Exécuter le script en Administrateur pour ajouter le chemin du programme" -ForegroundColor Magenta
+        Write-Host "Executer le script en Administrateur pour ajouter le chemin du programme" -ForegroundColor Magenta
     } else {
         Write-Host "La session est en mode administrateur." -ForegroundColor Magenta
         Write-Host "Ajout du répertoire au PATH..." -ForegroundColor Yellow
@@ -22,7 +25,11 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
         Write-Host "Le répertoire a été ajouté au PATH." -ForegroundColor Green
     }
-}
+} 
+
+
+
+
 
 winget --version 2>$null
 if (!$?) {
@@ -31,7 +38,7 @@ if (!$?) {
     Write-Host "..." -ForegroundColor Cyan
     Install-Module -Name Microsoft.WinGet.Client -Force
     if (!$?) {
-        Write-Host "Installation réussie !" -ForegroundColor Green
+        Write-Host "Installation réusit !" -ForegroundColor Green
         $wingetInstalled = "y"
     } else {
         $wingetInstalled = "n"
