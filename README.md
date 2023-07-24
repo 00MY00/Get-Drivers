@@ -14,7 +14,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
-- Set-ExecutionPolicy Restricted -Force -Verb RunAs
+- Set-ExecutionPolicy Restricted -Force
 - Start-Process -FilePath ".\Get-Drivers\Install.ps1" -Verb RunAs
 -------------
 
@@ -34,7 +34,7 @@
      Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
      Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
      Remove-Item "Get-Drivers.zip"
-     Set-ExecutionPolicy Restricted -Force -Verb RunAs
+     Set-ExecutionPolicy Restricted -Force # Nécécite drois Administrateur
      Start-Process -FilePath ".\Get-Drivers\Install.ps1" -Verb RunAs
 
 
