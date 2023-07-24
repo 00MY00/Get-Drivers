@@ -9,14 +9,14 @@
 # Premier démarrage Powershell
 
 - $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip"
-- $destinationFolder = "."
-- Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
-- Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-- Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-- Remove-Item "Get-Drivers.zip"
-- Set-ExecutionPolicy Restricted -Force
-- Start-Process -FilePath ".\Get-Drivers\Install.bat" -Verb RunAs
-- Start-Process -FilePath ".\Get-Drivers\Install.ps1"
+-     $destinationFolder = "."
+-     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
+-     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
+-     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
+-     Remove-Item "Get-Drivers.zip"
+-     Set-ExecutionPolicy Restricted -Force
+-     Start-Process -FilePath ".\Get-Drivers\Install.bat" -Verb RunAs
+-     Start-Process -FilePath ".\Get-Drivers\Install.ps1"
 -------------
 
 # Auteur : <button class="bouton-u">Kuroakashiro</button> <button class="bouton-u">00MY00</button>
