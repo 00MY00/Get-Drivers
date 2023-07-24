@@ -2,7 +2,7 @@
 Set-ExecutionPolicy Unrestricted -Force
 
 
-
+# Pour revenire au répertoire de base
 $Back = $PWD
 
 Set-Location "$env:USERPROFILE\Get-Drivers"
@@ -16,7 +16,7 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
         Write-Host "La session n'est pas en mode administrateur." -ForegroundColor Red
         Write-Host "Executer le script en Administrateur pour ajouter le chemin du programme" -ForegroundColor Magenta
     } else {
-        Write-Host "La session est en mode administrateur."
+        Write-Host "La session est en mode administrateur." -ForegroundColor Magenta
         Write-Host "Ajout du répertoire au PATH..." -ForegroundColor Yellow
 
         # Ajouter le répertoire au PATH pour le compte machine
@@ -38,7 +38,7 @@ if ($LASTEXITCODE -ne 0) {
     Write-Host "..." -ForegroundColor Cyan
     Install-Module -Name Microsoft.WinGet.Client -Force
     if ($LASTEXITCODE -ne 0) {
-        Write-Host "Installation réusit !"
+        Write-Host "Installation réusit !" -ForegroundColor Green
         $wingetInstalled = "y"
     } else {
         $wingetInstalled = "n"
@@ -57,21 +57,21 @@ if ($wingetInstalled -eq "y") {
     # Vérifier si Python est déjà installé avec Winget
     $pythonApp = Get-WinGetPackage -Name "Python" -Exact
     if ($pythonApp -eq $null) {
-        Write-Host "Python n'est pas installé !"
+        Write-Host "Python n'est pas installé !" -ForegroundColor Green
         # Installation de Python avec Winget
         winget install -e --exact "Python"
     } else {
-        Write-Host "Python est déjà installé."
+        Write-Host "Python est déjà installé." -ForegroundColor Yellow
     }
 
     # Vérifier si Git est déjà installé avec Winget
     $gitApp = Get-WinGetPackage -Name "Git" -Exact
     if ($gitApp -eq $null) {
-        Write-Host "Git n'est pas installé !"
+        Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
         winget install -e --exact "Git"
     } else {
-        Write-Host "Git est déjà installé."
+        Write-Host "Git est déjà installé." -ForegroundColor Yellow
     }
 
     
@@ -79,17 +79,17 @@ if ($wingetInstalled -eq "y") {
     # Vérification de la version installée de Python
     $pythonVersion = & python --version 2>$null
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "Python a été installé avec succès !"
+        Write-Host "Python a été installé avec succès !" -ForegroundColor Green
     } else {
-        Write-Host "Une erreur s'est produite lors de l'installation de Python."
+        Write-Host "Une erreur s'est produite lors de l'installation de Python." -ForegroundColor Red
     }
 
     # Vérification de la version installée de Git
     $gitVersion = & git --version 2>$null
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "Git a été installé avec succès."
+        Write-Host "Git a été installé avec succès." -ForegroundColor Green
     } else {
-        Write-Host "Une erreur s'est produite lors de l'installation de Git."
+        Write-Host "Une erreur s'est produite lors de l'installation de Git." -ForegroundColor Red
     }
 
 
@@ -106,12 +106,12 @@ if ($wingetInstalled -eq "n") {
     # Vérifier si Python est déjà installé
     $pythonVersion = & python --version 2>$null
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "Python est déjà installé. Vérification de la version..."
+        Write-Host "Python est déjà installé. Vérification de la version" -ForegroundColor Green
         & python --version
     }
 
     if (-Not (Test-Path "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe")) {
-        Write-Host "Il y a une erreur d'installation de Python. Veuillez vérifier que le chemin du programme est ajouté à la variable d'environnement 'Path'."
+        Write-Host "Il y a une erreur d'installation de Python. Veuillez vérifier que le chemin du programme est ajouté à la variable d'environnement 'Path'." -ForegroundColor Red
     }
 
     $PYTHON_URL = "https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe"
@@ -119,13 +119,15 @@ if ($wingetInstalled -eq "n") {
 
     # Vérifier si le fichier d'installation existe déjà
     if (Test-Path $INSTALLER_FILENAME) {
-        Write-Host "Le fichier d'installation de Python est déjà présent."
+        Write-Host "Le fichier d'installation de Python est déjà présent." -ForegroundColor Yellow
     } else {
-        Write-Host "Téléchargement de Python..."
+        Write-Host "Téléchargement de Python" -NoNewline -ForegroundColor Magenta
+        Write-Host "..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri $PYTHON_URL -OutFile $INSTALLER_FILENAME
     }
 
-    Write-Host "Installation de Python en cours..."
+    Write-Host "Installation de Python en cours" -NoNewline -ForegroundColor Magenta
+    Write-Host "..." -ForegroundColor Cyan
     $null = Start-Process -FilePath $INSTALLER_FILENAME -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -Wait
 
     # Mettre à jour le chemin d'accès actuel pour cette session
@@ -135,25 +137,26 @@ if ($wingetInstalled -eq "n") {
         $env:PATH = "$env:PATH;$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311"
     }
 
-    Write-Host "Nettoyage..."
+    Write-Host "Nettoyage" -NoNewline -ForegroundColor Magenta
+    Write-Host "..." -ForegroundColor Cyan
     Remove-Item $INSTALLER_FILENAME
 
     # Vérification de la version installée de Python
     $pythonVersion = & python --version 2>$null
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "Python a été installé avec succès !"
+        Write-Host "Python a été installé avec succès !" -ForegroundColor Green
     } else {
-        Write-Host "Une erreur s'est produite lors de l'installation de Python."
+        Write-Host "Une erreur s'est produite lors de l'installation de Python." -ForegroundColor Red
     }
 
     # Vérifier si Git est déjà installé
     $gitVersion = & git --version 2>$null
     if ($LASTEXITCODE -ne 0) {
         if (Test-Path "C:\Program Files\Git") {
-            Write-Host "Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'."
+            Write-Host "Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'." -ForegroundColor Red
             exit
         } else {
-            Write-Host "Git n'est pas installé !"
+            Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
 
             # Définir le répertoire de sauvegarde 
             $back = "D:\MonRépertoire"
@@ -166,19 +169,20 @@ if ($wingetInstalled -eq "n") {
             }
 
             # Installer Git (modifier le nom du fichier téléchargé si nécessaire)
-            Write-Host "Installation de Git..."
+            Write-Host "Installation de Git" -NoNewline -ForegroundColor Magenta
+            Write-Host "..." -ForegroundColor Cyan
             Start-Process -FilePath $gitSetupPath -ArgumentList "/SILENT" -Wait
 
             # Vérifier à nouveau si Git est installé après l'installation
             $gitVersion = & git --version 2>$null
             if ($LASTEXITCODE -eq 0) {
-                Write-Host "Git a été installé avec succès."
+                Write-Host "Git a été installé avec succès." -ForegroundColor Green
             } else {
-                Write-Host "Une erreur s'est produite lors de l'installation de Git."
+                Write-Host "Une erreur s'est produite lors de l'installation de Git." -ForegroundColor Red
             }
         }
     } else {
-        Write-Host "Git est déjà installé avec succès."
+        Write-Host "Git est déjà installé avec succès." -ForegroundColor Yellow
     }
 }
 
@@ -186,33 +190,39 @@ if ($wingetInstalled -eq "n") {
 $pipVersion = & pip --version 2>$null
 if ($LASTEXITCODE -eq 0) {
     & python get-pip.py
-    Write-Host "PIP est installé !"
+    Write-Host "PIP est installé !" -ForegroundColor Green
 } else {
-    Write-Host "PIP n'est pas installé !"
+    Write-Host "PIP n'est pas installé !" -ForegroundColor Red
 }
 
 
 & pip install --upgrade requests 2>$null
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "Installation de requests [OK]"
+    Write-Host "Installation de requests" -NoNewline
+    Write-Host " [OK]" -ForegroundColor Green
 } else {
-    Write-Host "Installation de requests [ERREUR]"
+    Write-Host "Installation de requests" -NoNewline
+    Write-Host " [ERREUR]" -ForegroundColor Red
 }
 
 
 & pip install --upgrade bs4 2>$null
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "Installation de bs4 [OK]"
+    Write-Host "Installation de bs4" -NoNewline
+    Write-Host " [OK]" -ForegroundColor Green
 } else {
-    Write-Host "Installation de bs4 [ERREUR]"
+    Write-Host "Installation de bs4" -NoNewline
+    Write-Host " [ERREUR]" -ForegroundColor Red
 }
 
 
 & pip install --upgrade urljoin 2>$null
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "Installation de urljoin [OK]"
+    Write-Host "Installation de urljoin" -NoNewline
+    Write-Host " [OK]" -ForegroundColor Green
 } else {
-    Write-Host "Installation de urljoin [ERREUR]"
+    Write-Host "Installation de urljoin" -NoNewline
+    Write-Host " [ERREUR]" -ForegroundColor Red
 }
 
 
@@ -220,9 +230,7 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
     Write-Host "Erreur le chemin n'est pas ajoutée corectement !"
 } else {
     # "Le répertoire est déjà présent dans le PATH."
-    if (Test-Path ".\Install.ps1") {
-        Remove-Item ".\Install.ps1" -Force
-    }
+    Write-Host "Vous pouvez appeler la commande 'Get-Drivers' a présent comme une commande native powershell !" -ForegroundColor Green
 }
 
 Set-Location "$back"
