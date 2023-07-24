@@ -926,7 +926,7 @@ function updateGit() {
         if (-not ($Path -eq ".\Download\Version.GetDriver")) {
             if (-not (Test-Path "$Path")) {
                 # Crée le fichier avec une valeur 0.0.1 pour forcer la mise à jour
-                "Version 0.0.1" | Out-File -FilePath $Path
+                "Version 0.0.1" | Out-File -Encoding UTF8 -FilePath $Path
             }
         }
 
