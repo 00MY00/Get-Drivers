@@ -1,5 +1,5 @@
 ﻿#Retirer la réstriction d'execution de code powershell
-Set-ExecutionPolicy Unrestricted -Force
+# Set-ExecutionPolicy Unrestricted -Force
 
 
 # Pour revenire au répertoire de base
