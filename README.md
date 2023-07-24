@@ -12,7 +12,7 @@
 - $destinationFolder = "$env:USERPROFILE"
 - Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-- Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
+- Rename-Item -Path "$destinationFolder\Get-Drivers-main" -NewName "$destinationFolder\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
 - Set-ExecutionPolicy Restricted -Force
 - Start-Process -FilePath "$destinationFolder\Install.ps1" -Verb RunAs
@@ -32,7 +32,7 @@
      $destinationFolder = "$env:USERPROFILE"
      Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
      Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
+     Rename-Item -Path "$destinationFolder\Get-Drivers-main" -NewName "$destinationFolder\Get-Drivers"
      Remove-Item "Get-Drivers.zip"
      Set-ExecutionPolicy Restricted -Force # Nécécite drois Administrateur
      Start-Process -FilePath "$destinationFolder\Install.ps1" -Verb RunAs
