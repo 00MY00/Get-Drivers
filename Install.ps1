@@ -104,10 +104,10 @@ if ($wingetInstalled -eq "n") {
     Set-Location "$env:USERPROFILE\Get-Drivers\Download"
 
     # Vérifier si Python est déjà installé
-    $pythonVersion = & python --version 2>$null
+    $pythonVersion = python --version 2>$null
     if (!$?) {
         Write-Host "Python est déjà installé. Vérification de la version" -ForegroundColor Green
-        & python --version
+        python --version
     }
 
     if (-Not (Test-Path "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe")) {
@@ -142,7 +142,7 @@ if ($wingetInstalled -eq "n") {
     Remove-Item $INSTALLER_FILENAME
 
     # Vérification de la version installée de Python
-    $pythonVersion = & python --version 2>$null
+    $pythonVersion = python --version 2>$null
     if (!$?) {
         Write-Host "Python a été installé avec succès !" -ForegroundColor Green
     } else {
@@ -150,7 +150,7 @@ if ($wingetInstalled -eq "n") {
     }
 
     # Vérifier si Git est déjà installé
-    $gitVersion = & git --version 2>$null
+    $gitVersion = git --version 2>$null
     if (!$?) {
         if (Test-Path "C:\Program Files\Git") {
             Write-Host "Il y a une erreur d'installation de Git. Vérifiez que le chemin du programme est ajouté à la variable d'environnement 'Path'." -ForegroundColor Red
@@ -174,7 +174,7 @@ if ($wingetInstalled -eq "n") {
             Start-Process -FilePath $gitSetupPath -ArgumentList "/SILENT" -Wait
 
             # Vérifier à nouveau si Git est installé après l'installation
-            $gitVersion = & git --version 2>$null
+            $gitVersion = git --version 2>$null
             if (!$?) {
                 Write-Host "Git a été installé avec succès." -ForegroundColor Green
             } else {
@@ -187,16 +187,16 @@ if ($wingetInstalled -eq "n") {
 }
 
 
-$pipVersion = & pip --version 2>$null
+$pipVersion = pip --version 2>$null
 if (!$?) {
-    & python get-pip.py
+    python get-pip.py
     Write-Host "PIP est installé !" -ForegroundColor Green
 } else {
     Write-Host "PIP n'est pas installé !" -ForegroundColor Red
 }
 
 
-& pip install --upgrade requests 2>$null
+pip install --upgrade requests 2>$null
 if (!$?) {
     Write-Host "Installation de requests" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
@@ -206,7 +206,7 @@ if (!$?) {
 }
 
 
-& pip install --upgrade bs4 2>$null
+pip install --upgrade bs4 2>$null
 if (!$?) {
     Write-Host "Installation de bs4" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
@@ -216,7 +216,7 @@ if (!$?) {
 }
 
 
-& pip install --upgrade urljoin 2>$null
+pip install --upgrade urljoin 2>$null
 if (!$?) {
     Write-Host "Installation de urljoin" -NoNewline
     Write-Host " [OK]" -ForegroundColor Green
