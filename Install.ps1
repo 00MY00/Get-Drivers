@@ -6,9 +6,9 @@ Set-ExecutionPolicy Unrestricted
 $Back = $PWD
 
 Set-Location "$env:USERPROFILE\Get-Drivers"
-
-
 $scriptDir = "$env:USERPROFILE\Get-Drivers\Download"
+
+
 # Vérifier si le chemin du répertoire du script est déjà présent dans le PATH
 if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
@@ -31,10 +31,11 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
 
 
-$wingetVersion = & winget --version 2>$null
+winget --version 2>$null
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Winget n'est pas installé !"
-    Write-Host "Téléchargement ..."
+    Write-Host "Téléchargement" -NoNewline
+    Write-Host "..." -ForegroundColor Cyan
     Install-Module -Name Microsoft.WinGet.Client -Force
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Installation réusit !"
@@ -46,7 +47,7 @@ if ($LASTEXITCODE -ne 0) {
 
 if (-Not (Test-Path "$env:USERPROFILE\Get-Drivers\Download")) {
     New-Item -ItemType Directory -Path "$env:USERPROFILE\Get-Drivers\Download" | Out-Null
-    Write-Host "Creation du dossier de téléchargement !"
+    Write-Host "Creation du dossier de téléchargement !" -ForegroundColor Green
 }
 
 
@@ -79,7 +80,6 @@ if ($wingetInstalled -eq "y") {
     $pythonVersion = & python --version 2>$null
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Python a été installé avec succès !"
-        goto Install-Pip
     } else {
         Write-Host "Une erreur s'est produite lors de l'installation de Python."
     }
@@ -108,7 +108,6 @@ if ($wingetInstalled -eq "n") {
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Python est déjà installé. Vérification de la version..."
         & python --version
-        goto Install-Pip
     }
 
     if (-Not (Test-Path "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe")) {
@@ -143,7 +142,6 @@ if ($wingetInstalled -eq "n") {
     $pythonVersion = & python --version 2>$null
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Python a été installé avec succès !"
-        goto Install-Pip
     } else {
         Write-Host "Une erreur s'est produite lors de l'installation de Python."
     }
