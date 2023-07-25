@@ -1,5 +1,5 @@
 ﻿# Définir le chemin du fichier 'get-drivers.ps1'
-$scriptFilePath = ".\get-drivers.ps1"
+$scriptFilePath = "get-drivers.ps1"
 
 # Charger le contenu du fichier 'get-drivers.ps1'
 $scriptContent = Get-Content -Path $scriptFilePath
@@ -35,4 +35,4 @@ foreach ($ligne in $scriptContent) {
 }
 
 # Écrire le contenu modifié dans le fichier 'get-drivers-2.ps1'
-$nouveauContenu | Out-File -FilePath ".\get-drivers-2.ps1" -Force
+$nouveauContenu | Out-File -FilePath "get-drivers-2.ps1" -Force
