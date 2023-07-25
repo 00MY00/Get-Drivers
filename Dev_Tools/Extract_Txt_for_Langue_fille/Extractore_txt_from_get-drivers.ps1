@@ -53,5 +53,6 @@ $scriptContent | ForEach-Object {
 Write-Host "Hachage unique ajouté devant chaque ligne avec du texte dans le fichier 'FR.GetDriver'."
 
 
-Start-Process "Chang_zon_txt_en_variavle.ps1"
+Start-Process powershell.exe -ArgumentList "-File Chang_zon_txt_en_variable.ps1"
+
 
