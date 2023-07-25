@@ -69,6 +69,8 @@ if ($wingetInstalled -eq "y") {
         Write-Host "Python n'est pas installé !" -ForegroundColor Red
         # Installation de Python avec Winget
         winget install "Python" --scope=machine --accept-package-agreements --silent
+        $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
+
     } else {
         Write-Host "Python est déjà installé." -ForegroundColor Yellow
     }
@@ -79,6 +81,8 @@ if ($wingetInstalled -eq "y") {
         Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
         winget install "Git" --scope=machine --accept-package-agreements --silent
+        $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
+
     } else {
         Write-Host "Git est déjà installé." -ForegroundColor Yellow
     }
@@ -145,7 +149,8 @@ if ($wingetInstalled -eq "n") {
     $null = Start-Process -FilePath $INSTALLER_FILENAME -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -Wait
 
     # Mettre à jour le chemin d'accès actuel pour cette session
-    $env:PATH += ";$script_dir"
+    $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
+
 
     if (Test-Path "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311\python.exe") {
         $env:PATH = "$env:PATH;$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python311"
@@ -186,6 +191,8 @@ if ($wingetInstalled -eq "n") {
             Write-Host "Installation de Git" -NoNewline -ForegroundColor Magenta
             Write-Host "..." -ForegroundColor Cyan
             Start-Process -FilePath $gitSetupPath -ArgumentList "/SILENT" -Wait
+
+            $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
 
             # Vérifier à nouveau si Git est installé après l'installation
             $gitVersion = git --version 2>$null
