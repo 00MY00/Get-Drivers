@@ -105,7 +105,12 @@ if ($wingetInstalled -eq "y") {
 }
 
 
-
+try {
+    python --version 2>$null
+    git --version 2>$null
+} catch {
+    $wingetInstalled = "n"
+}
 
 
 if ($wingetInstalled -eq "n") {
