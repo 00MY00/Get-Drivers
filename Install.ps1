@@ -35,13 +35,19 @@ winget --version 2>$null
 if (!$?) {
     Write-Host "Winget n'est pas installé !"
     Write-Host "Téléchargement" -NoNewline
-    Write-Host "..." -ForegroundColor Cyan
-    Install-Module -Name Microsoft.WinGet.Client -Force
-    if (!$?) {
-        Write-Host "Installation réusit !" -ForegroundColor Green
+    Write-Host "..." -ForegroundColor Cyan 
+    try {
+        $downloadUrl = 'https://github.com/microsoft/winget-cli/releases/download/v1.5.1881/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle'
+        $downloadPath = "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+        # Télécharger le fichier MSIX
+        Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
+        # Exécuter l'installation du package MSIX
+        Add-AppxPackage -Path $downloadPath
+        Write-Host "Téléchargement réusit !" -ForegroundColor Green
         $wingetInstalled = "y"
-    } else {
+    } catch {
         $wingetInstalled = "n"
+        Write-Host "Erreur de téléchargement !" -ForegroundColor Red
     }
 }
 
@@ -59,7 +65,7 @@ if ($wingetInstalled -eq "y") {
     if ($pythonApp -eq $null) {
         Write-Host "Python n'est pas installé !" -ForegroundColor Green
         # Installation de Python avec Winget
-        winget install -e --exact "Python"
+        winget install "Python" --scope=machine --accept-package-agreements --silent --disable-interactivity
     } else {
         Write-Host "Python est déjà installé." -ForegroundColor Yellow
     }
@@ -69,7 +75,7 @@ if ($wingetInstalled -eq "y") {
     if ($gitApp -eq $null) {
         Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
-        winget install -e --exact "Git"
+        winget install "Git" --scope=machine --accept-package-agreements --silent --disable-interactivity
     } else {
         Write-Host "Git est déjà installé." -ForegroundColor Yellow
     }
