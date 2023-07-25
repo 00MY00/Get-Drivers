@@ -177,8 +177,6 @@ if ($wingetInstalled -eq "n") {
         } else {
             Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
 
-            # Définir le répertoire de sauvegarde 
-            $back = "D:\MonRépertoire"
 
             # Télécharger Git s'il n'existe pas déjà dans le répertoire de sauvegarde
             $gitSetupPath = "$env:USERPROFILE\Get-Drivers\Download\GitSetup.exe"
@@ -254,7 +252,7 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
     Write-Host "Vous pouvez appeler la commande 'Get-Drivers' a présent comme une commande native powershell !" -ForegroundColor Green
 }
 
-Set-Location "$back"
+Set-Location "$Back"
 
 
 exit(0)
