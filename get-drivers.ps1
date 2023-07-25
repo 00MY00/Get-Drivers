@@ -1,7 +1,7 @@
 ﻿################################
 # Crée par : Kuroakashiro
 ################################
-# Verssion : 0.9
+# Verssion : 1.0
 ###################################################################################
 # FUNCTION
 
@@ -14,7 +14,7 @@ function RecuperationLangue() {     # Fonction pour récupérer le txt e nfoncti
     $DriverFile = ".\Lang.GetDriver"
 
     # Vérifier si le répertoire '.\Lang' existe cinon le crée
-    if (-not (Test-Path $LangDirectory -PathType Container)) {
+    if (-not (Test-Path $LangDirectory)) {
         New-Item -Path $LangDirectory
     }
 
@@ -75,10 +75,17 @@ function RecuperationLangue() {     # Fonction pour récupérer le txt e nfoncti
         }
     }
 
+    # Supprimer les variables globales créées
+    if ($variableList) {
+        $variableList | ForEach-Object {
+            Remove-Variable -Name $_ -Scope Global
+        }
+    }
+    
     # Définir les variables globales et les stocker dans un tableau
     $variableList = @()
     $variablesAndContent | ForEach-Object {
-        New-Variable -Name $_.Name -Value $_.Value
+        New-Variable -Name $_.Name -Value $_.Value -Scope Global
         # Ajouter la variable au tableau
         $variableList += $_.Name
     }
@@ -1456,6 +1463,12 @@ foreach ($key in $global:Parametres.Keys) {
 }
 
 Set-Location "$PWD"
+# Supprimer les variables globales créées
+if ($variableList) {
+    $variableList | ForEach-Object {
+        Remove-Variable -Name $_ -Scope Global
+    }
+}
 exit(0)             #Commande términer corectement
 
 
