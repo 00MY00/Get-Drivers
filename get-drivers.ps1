@@ -1,7 +1,7 @@
 ﻿################################
 # Crée par : Kuroakashiro
 ################################
-# Verssion : 0.8
+# Verssion : 0.9
 ###################################################################################
 # FUNCTION
 
@@ -860,9 +860,9 @@ function upgrade($Str) {          # Permet de rechercher des drivers et avec la 
     } catch {
         Write-Host "Erreur Python n'es pas installer ou n'es pas ajouter au 'Path' !" -ForegroundColor Red
         try {
-            Start-Process -FilePath ".\Install.bat" -Wait
+            Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
         } catch {
-            Write-Host "Erreur la tentative d'execution de 'Install.bat' à échouer !" -ForegroundColor Red
+            Write-Host "Erreur la tentative d'execution de 'Install.ps1' à échouer !" -ForegroundColor Red
         }
     }
 
@@ -1068,7 +1068,7 @@ function upgradeGit() {         # Permet de metre à joure le programe
         # "Le mot 'Depasser' a été trouvé dans le fichier. Ce mot permet de valider ci il faut apliquer le upgrdeGit ou non
         if (-not (git --version 2>$null)) {
             # Erreur git n'est pas disponible 
-            Start-Process ".\install.bat"
+            Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
             Write-Host "Erreur git ne fonctionne pas, vérifiez votre installation ou téléchargez-la. Si l'erreur persiste, installer GIT !" -ForegroundColor Red
         }
         else {
