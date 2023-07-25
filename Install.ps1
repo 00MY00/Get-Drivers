@@ -25,7 +25,7 @@ if (-Not ($env:PATH -split ";" -contains $scriptDir)) {
 
         Write-Host "Le répertoire a été ajouté au PATH." -ForegroundColor Green
     }
-} 
+}
 
 
 
@@ -49,6 +49,9 @@ if (!$?) {
         $wingetInstalled = "n"
         Write-Host "Erreur de téléchargement !" -ForegroundColor Red
     }
+} else {
+    $wingetInstalled = "y"
+    Write-Host "Winget est installer !" -ForegroundColor Green
 }
 
 if (-Not (Test-Path "$env:USERPROFILE\Get-Drivers\Download")) {
