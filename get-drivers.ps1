@@ -5,6 +5,102 @@
 ###################################################################################
 # FUNCTION
 
+
+
+function RecuperationLangue() {     # Fonction pour récupérer le txt e nfonction de la langue
+
+
+    $LangDirectory = ".\Lang"
+    $DriverFile = ".\Lang.GetDriver"
+
+    # Vérifier si le répertoire '.\Lang' existe cinon le crée
+    if (-not (Test-Path $LangDirectory -PathType Container)) {
+        New-Item -Path $LangDirectory
+    }
+
+    # Récupérer la liste des fichiers dans le répertoire '.\Lang'
+    $files = Get-ChildItem $LangDirectory | Where-Object { $_.PSIsContainer -eq $false }
+
+
+    # Vérifier le nombre de fichiers dans le répertoire
+    if ($files.Count -eq 1) {
+        # S'il y a un seul fichier, récupérer son nom dans la variable $File
+        $File = $files.Name
+    }
+    else {
+        # S'il y a plusieurs fichiers, vérifier si le fichier 'Lang.GetDriver' existe
+        if (Test-Path $DriverFile -PathType Leaf) {
+            # Si le fichier existe, récupérer la première ligne du fichier
+            $firstLine = Get-Content $DriverFile -TotalCount 1
+            # Vérifier si le fichier mentionné dans 'Lang.GetDriver' existe dans le répertoire '.\Lang'
+            if (Test-Path "$LangDirectory\$firstLine" -PathType Leaf) {
+                $File = $firstLine
+            }
+            else {
+                # Si le fichier mentionné dans 'Lang.GetDriver' n'existe pas dans le répertoire '.\Lang', écrire le premier fichier trouvé dans '.\Lang' dans 'Lang.GetDriver'
+                $firstFile = $files[0].Name
+                Set-Content -Path $DriverFile -Value $firstFile
+                $File = $firstFile
+            }
+        }
+        else {
+            # Si le fichier 'Lang.GetDriver' n'existe pas, créer le fichier et écrire le premier fichier trouvé dans '.\Lang' dedans
+            $firstFile = $files[0].Name
+            Set-Content -Path $DriverFile -Value $firstFile
+            $File = $firstFile
+        }
+    }
+
+
+
+    # Définir le chemin du fichier 'FR.GetDriver'
+    $destinationFilePath = $File
+
+    # Lire le contenu du fichier 'FR.GetDriver'
+    $scriptContent = Get-Content -Path $destinationFilePath
+
+    # Créer un tableau pour stocker les variables et leur contenu
+    $variablesAndContent = @()
+
+    # Parcourir chaque ligne du fichier 'FR.GetDriver'
+    foreach ($line in $scriptContent) {
+        if ($line -match '^(.*?)([A-Za-z0-9]+);(.*)$') {
+            $variableName = $matches[2]
+            $variableValue = $matches[3].Trim()
+            $variableObject = [PSCustomObject]@{
+                Name = $variableName
+                Value = $variableValue
+            }
+            $variablesAndContent += $variableObject
+        }
+    }
+
+    # Définir les variables globales et les stocker dans un tableau
+    $variableList = @()
+    $variablesAndContent | ForEach-Object {
+        New-Variable -Name $_.Name -Value $_.Value
+        # Ajouter la variable au tableau
+        $variableList += $_.Name
+    }
+
+    # Créer les variables dynamiquement
+    $i = 0
+    foreach ($txt in $variableList) {
+        $variableName = "text$i"
+        $variableValue = Get-Variable -Name $txt -ValueOnly
+        New-Variable -Name $variableName -Value $variableValue -Scope Script
+        $i++
+    }
+
+    # $variableList contien la list de variable récupérer
+
+    # Les variables $text'x-y' contiènderon le txt a afficher
+}
+
+RecuperationLangue
+
+######################
+
 function Help() {
 
     # _    _ ______ _      _____  
@@ -29,6 +125,7 @@ function Help() {
     Write-Host "    -upgradeGit ; Permet de télécharger et apliquer une nouvelle verssion" -ForegroundColor Yellow
     Write-Host "    -help ; Affiche cet page d'aide" -ForegroundColor Yellow
     Write-Host "    -mydr ; Afficher les Drivers installé" -ForegroundColor Yellow
+    #Write-Host "    -lang ; Permet de changer la langue" -ForegroundColor Yellow
     Write-Host ""
     Write-Host ""
     Write-Host "---------------------------------------------------------------" -ForegroundColor Cyan
