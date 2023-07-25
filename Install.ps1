@@ -68,7 +68,7 @@ if ($wingetInstalled -eq "y") {
     if (!$?) {
         Write-Host "Python n'est pas installé !" -ForegroundColor Red
         # Installation de Python avec Winget
-        winget install "Python" --scope=machine --accept-package-agreements --silent --disable-interactivity
+        winget install "Python" --scope=machine --accept-package-agreements --silent
     } else {
         Write-Host "Python est déjà installé." -ForegroundColor Yellow
     }
@@ -78,7 +78,7 @@ if ($wingetInstalled -eq "y") {
     if (!$?) {
         Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
-        winget install "Git" --scope=machine --accept-package-agreements --silent --disable-interactivity
+        winget install "Git" --scope=machine --accept-package-agreements --silent
     } else {
         Write-Host "Git est déjà installé." -ForegroundColor Yellow
     }
@@ -196,7 +196,7 @@ if ($wingetInstalled -eq "n") {
 }
 
 
-$pipVersion = pip --version 2>$null
+pip --version 2>$null
 if (!$?) {
     python get-pip.py
     Write-Host "PIP est installé !" -ForegroundColor Green
