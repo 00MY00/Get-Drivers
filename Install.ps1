@@ -192,6 +192,9 @@ if ($wingetInstalled -eq "n") {
 
             $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
 
+            if (Test-Path "$gitSetupPath") {
+                Remove-Item $gitSetupPath
+            }
             # Vérifier à nouveau si Git est installé après l'installation
             $gitVersion = git --version 2>$null
             if (!$?) {
