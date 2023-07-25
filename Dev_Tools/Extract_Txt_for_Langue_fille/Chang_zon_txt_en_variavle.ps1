@@ -18,8 +18,9 @@ foreach ($ligne in $scriptContent) {
         $texte = $Matches[1]
 
         if ($texte -ne "") {
-            # Remplacer le texte entre guillemets par la variable $txtX
-            $nouvelleLigne = $ligne -replace '"(.*?)"', "`"`$txt$compteur`""
+            # Créer la nouvelle ligne avec la syntaxe $ExecutionContext.InvokeCommand.ExpandString("`$txt$compteur`")
+            $nouvelleLigne = $ligne -replace '"(.*?)"', "`$ExecutionContext.InvokeCommand.ExpandString(`"`$txt$compteur`"`)"
+
             $compteur++
         } else {
             # Conserver la ligne sans modification
