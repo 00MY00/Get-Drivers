@@ -1,0 +1,238 @@
+﻿vJK0le7J5E;═══════════════════════════════════════════════════════════════
+mSU9ul94Hb;► Page d'aide
+bOKvnbzDgi;Syntaxe : Get-Driver -list 'tt' ou -list 'nourl' ou -help
+EdNCKZ9xGR;Paramètres :
+wySuu2naA4;    -list ; Affiche la liste complète des drivers disponibles
+X1stjg8YMK;    -version ; Affiche la version actuelle
+H0VPzdHL37;    -search 'txt+txt' ; Permet de faire une recherche parmi les drivers
+YxUU6kszin;    -install 'txt'; Permet d'installer un des drivers
+iK2VMtk76b;    -update ; Permet de mettre à jour les listes de drivers
+8qobvGPr0W;    -upgrade 'txt' ; Permet de faire une recherche de Drivers utilisant 'apply' pour ajouter les données récupérées
+DPcjL8FqjB;    -updateGit ; Permet de rechercher des mises à jour
+PEV9v779DG;    -upgradeGit ; Permet de télécharger et appliquer une nouvelle version
+3JOc9sI3j0;    -help ; Affiche cette page d'aide
+VA8LjTrTKO;    -mydr ; Affiche les Drivers installés
+n3Y5M4Uopx;---------------------------------------------------------------
+IPotd4AAjc;Valeurs :
+zLHspOFJac;    'applyold' s'utilise avec -upgrade et permet de charger une liste déjà existante
+Pnyyc9vTPE;    'apply' s'utilise avec -upgrade pour appliquer les données trouvées
+XdNvsFWPsp;    'url' s'utilise avec -list permet d'afficher uniquement les lignes et le contenu commençant par http
+SrtrYbwqP8;    'tt' s'utilise avec -list permet de connaître le nombre de drivers répertoriés
+zKOMhebzQe;    'nourl' s'utilise avec -list permet d'afficher les drivers téléchargés
+7Pzclj0sue;═══════════════════════════════════════════════════════════════
+cfnHb7AI7b;Recherche en cours 
+i0ZkpXdPFg;...
+fnqy9up5Z2;═══════════════════════════════════════════════════════════════
+jaCQFLL5BA;► Page d'aide de '-search'
+9zPDwHzOwO;Syntaxe : Get-Driver -search 'mot_1+mot_2'
+GkmO8yyzIr;Paramètre :
+RFsE1IyJfe;    -search ; permet de faire une recherche parmi les drivers
+LiOFhqXnC2;Exemple de valeur :
+5bILw9xyRQ;    'txt1+txt2'
+T6A2ziAttY;Infos :
+O9nco6tDYn;    Il est possible de chercher plusieurs mots
+qvHLPpOKfZ;    qui devraient être dans la même ligne en les séparant avec le signe '+'
+a0HNkb5zJ8;═══════════════════════════════════════════════════════════════
+11LEgRnKkH;Contenu semblable trouvé
+0C2T8iyzmK;►
+U0OT8Y2a1M;    $txt
+B43awyjCo7;◄
+CDjYjX8yOB;Aucune correspondance ! `nVérifiez que la liste est actualisée '-update'
+mFM9nBn1FI;Erreur 'b9SB48vt'
+YMSYF5IbgK;Contenu semblable trouvé
+8vKpIQQzuk;►
+qnMRDhLvsS;    $txt
+Benw06c8zz;◄
+yrzvy79F5S;Aucune correspondance ! `nVérifiez que la liste est actualisée '-update'
+UEimKILt3D;Erreur : le dossier '$cheminDossier' est introuvable !
+ITV27WEaJO;Erreur : le fichier '$cheminFichierTxt' doit être créé !
+rPfjL9yadG;Le fichier a bien été créé !
+iFzZ875Bls;Le fichier n'a pas pu être créé, vérifiez vos droits !
+vtEwqeV6yb;-
+2j5rkEi8bL; $url
+UuPxfDd549;Erreur d'ajout du chemin concaténé
+aDybd7Kt2q;-
+gCqezo3Sjz; $nomFichier
+EM7jVTvQOn;Erreur d'ajout du chemin concaténé
+xXWARl2XEX;Erreur lors de la correction des doublons.
+1Bk9Zwl7cj;═══════════════════════════════════════════════════════════════
+od5k1jLomN;► Page d'aide de '-list'
+bAZmLIppMN;Syntaxe : Get-Driver -list tt, nourl, url
+vgNL7Dm7Ki;Paramètres :
+ryxp8TbwIr;    -list ; Affiche la liste complète des drivers disponibles
+aOu151l7yQ;Valeur exemple :
+G5uOyIQtmy;    tt
+7NeDfmMun1;    nourl
+r3gfxhvWPG;    url
+coJ4cvEj10;Infos :
+DrJUuMurVS;    'tt' Affiche le total de drivers dans la liste
+o1T6jNZPbQ;    'nourl' Affiche tous les drivers locaux
+2t14DnETit;    'url' Affiche tous les drivers non locaux
+1q74hSeLpz;═══════════════════════════════════════════════════════════════
+5SDl03nSeQ;►
+vOBY9d11Mo; Ligne sans lien : $ligne
+65FYSpm4LU;►
+SNC2YjpQDJ; Total Drivers 
+9wzR7npi4E; '$nombreLignes'
+bn9A3ANpSL;►
+QtGK7iMIAZ; Drivers Locaux 
+ykxCpKGxbp; '$nombreLignesSansHttp'
+9D9H2pOB9Y;►
+W9722PppUZ; Drivers URLs 
+bhieP006Vt; $nombreLignesAvecHttp
+3aOmLNt9RS;►
+TKImDym5KZ; Lien trouvé : $lien
+OaDTRmOVgm;►
+oL7OuSNGGC; : $contenuApresDossier2
+DNvLZLYM4J;═══════════════════════════════════════════════════════════════
+qbbxkKGv6t;► Page d'aide de '-install'
+NWOMtuEJub;Syntaxe : Get-Driver -install 'Nom_le_plus_proche.exe'
+KapIkAo13F;Paramètre :
+NCaX6MtJoj;    -install ; Permet d'installer un des drivers
+LcKWyq9jbo;Valeur exemple :
+HOcd9PwTMj;    '0_x64_Software.exe'
+EzhgCs72XJ;Infos :
+r3QBPpgZf0;    Récupérer le nom du driver dans la liste de drivers avec -list ou -search
+C4Sa3zSfDO;    Ajouter le nom du driver en paramètre à -install
+NYdKyyh8fQ;    Si votre paramètre est semblable à plusieurs autres, une liste demandera de choisir parmi les 10 premiers
+4LjMkKgGnN;═══════════════════════════════════════════════════════════════
+acyJ6TZFNa;Sélection : '$ContenuFichier'
+Hh3PGfFYw5;Erreur, le nom du driver est incorrect !
+p3RnUBzRjo;Utilisez '-search' pour vérifier le nom ou '-update' pour actualiser la liste !
+SaVSzRsp7V;Installation réussie !
+iELwSWSTGF;L'opérateur '/qn' ne fonctionne pas.
+EHTshgKLz4;L'opérateur '/quiet' ne fonctionne pas.
+dHfiHqMlay;Terminée.
+wabbWkseU7;Erreur, impossible d'ouvrir le fichier '$ContenuFichier'.
+tfLejLHnuS;Erreur lors de l'exécution du fichier '$ContenuFichier'.
+ags6QrI3WD;Deuxième tentative réussie !
+eXQWboPU6C;Erreur, la deuxième tentative a aussi échoué !
+KzABcHDZdH;Le dossier 'Download' est créé !
+Hl4jZfx2PV;Erreur lors de l'extraction du fichier !
+B88sFDlnwh;Erreur de suppression du fichier ZIP !
+vZLcxlfrdJ;Installation terminée.
+osaP62cq65;Erreur lors de l'exécution du fichier '${$batFile.FullName}'.
+1WElAL1S6Y;Installation terminée.
+fZn5VsZcvy;Erreur lors de l'exécution du fichier '${$heaviestExe.FullName}'.
+AFZGqTitwM;Installation terminée.
+Q5MICy0aNk;Erreur lors de l'exécution du fichier '${$heaviestMsi.FullName}'.
+hFjJ6BinV0;Installation terminée.
+KfhQ5v6rmM;Erreur lors de l'exécution du fichier '${$heaviestExe.FullName}'.
+pi66nKNGy1;Installation terminée.
+hJiZ9Qs2Pg;Erreur lors de l'exécution du fichier '${$heaviestMsi.FullName}'.
+fKFgxuX6NQ;Erreur lors de la suppression de l'archive '$DossierZip'.
+1IxB58Imfw;Format du fichier '$extension'.
+ybyeSA7IQo;Téléchargement du fichier '$NomFichier'.
+DEcFqecaJ3; [Terminée]
+wR3i9YVhdA; [Erreur]
+HFWcsDWlNw;Exécution terminée.
+xPpiNxpsUa;Suppression réussie.
+fsdm9giQe4;Erreur à l'exécution du fichier '$NomFichier' !
+paoPh8rAXn;Le dossier 'Download' est créé !
+I1NWFhlVUM;Erreur lors de l'extraction du fichier !
+mmYiQxBbMe;Erreur lors de la suppression du fichier ZIP !
+UkjdIARiwC;Installation terminée.
+RbP0eDrmCF;Erreur lors de l'exécution du fichier '${$batFile.FullName}'.
+jwXVO1dAi6;Installation terminée.
+zkrNaWJIxn;Erreur lors de l'exécution du fichier '${$heaviestExe.FullName}'.
+WXswALWhDM;Installation terminée.
+FYZH5iMNPR;Erreur lors de l'exécution du fichier '${$heaviestMsi.FullName}'.
+hQ9zNrtBaI;Installation terminée.
+4jyYsLDlVC;Erreur lors de l'exécution du fichier '${$heaviestExe.FullName}'.
+e57W0aLkS2;Installation terminée.
+9Tj7ewLdLY;Erreur lors de l'exécution du fichier '${$heaviestMsi.FullName}'.
+HEjyVAAdNO;Erreur à la suppression de l'archive '$DossierZip'.
+ZW6bDVchc8;Plusieurs fichiers correspondent à votre choix !
+d9yuyis4SB;[$i] ► $chemin[$i]
+GC1B1blXWu;Entrez le numéro correspondant à votre choix !
+OkVCNmWI4I;Erreur, 10 maximum !
+ToBM4HQy9x;Erreur, 0 minimum !
+RFKLHXe5jm;Sélection : '$ContenuFichier'
+uFKru3nwhM;Erreur lors de l'appel de la fonction installLocal.
+LkAKscBoHt;Internet n'est pas accessible. `nCommande impossible !
+LwYjdIZK4z;Erreur, la commande a échoué !
+HbiRXOeTcB;═══════════════════════════════════════════════════════════════
+edRxlqFAdp;► Page d'aide de '-upgrade'
+W0yza8qkOl;Syntaxe : Get-Driver -upgrade 'apply', 'applyold'
+dd2rEuCswd;Paramètre :
+ysDKQ34AC5;    -upgrade ; Permet de mettre à jour la liste de drivers de '-list' et 'search'
+Kw2l0XTvmC;Valeur exemple :
+ZCeqgAWzlD;    'applyold'
+A60HDMJI1h;Info :
+mMbtvormzt;     La commande permet de mettre à jour la liste de drivers de '-list' et 'search'
+8VPFNwOXnQ;    'applyold' Permet d'appliquer une recherche de drivers déjà faite
+gEY94O6uin;    'apply' exécute une recherche de drivers en ligne et les applique à la liste
+OL3EaMkv42;    La commande sans paramètre va exécuter une recherche de drivers, mais elle ne sera pas ajoutée
+Su91Epqu4R;═══════════════════════════════════════════════════════════════
+LZOke2EBAz;L'URL existe déjà dans le fichier 'url.txt'. Aucune action nécessaire.
+7R26CWCqDO;Erreur, la fonction apply permettant de rajouter les données trouvées a échoué !
+h7LQGSHuB6;Erreur, le fichier est introuvable. Utilisez -upgrade 'apply' !
+5JRgn3YCln;Changement automatique du paramètre 'applyold' par 'apply' !
+4olhNuJ1Y0;Erreur, Python n'est pas installé ou n'est pas ajouté au 'Path' !
+zi2VZNN8eM;Erreur, la tentative d'exécution de 'Install.ps1' a échoué !
+uUAE3x9WSJ;Initialisation de la recherche de drivers
+79EaU2WoDV;...
+IPVKGWR5Ga;Erreur, la fonction apply permettant de rajouter les données trouvées a échoué !
+qaiZ2jngnZ;Erreur à la récupération de la version locale !
+uxjP2zdcBh;Erreur à la récupération de la version distante !
+0i4IDf908h;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+gDP1dhbphv;▐ Votre version est inférieure à la nouvelle !
+O0BolVpFRR;▐ Utilisez la commande '-upgradeGit' pour l'installer.
+2y4jkHgaWW;▐ Version installée :
+hGa9s0PD9s; '$LocalVersion'
+uv2QOWvlea;▐ Version disponible :
+o331pk1oby; '$GitVersion'
+zXs5Oko6Vs;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+LGuVozkH77;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+qvflmoMiUH;▐ Votre version est à jour !
+9kmK3XD7Bo;▐ Version installée :
+ryQvPiIhNz; '$LocalVersion'
+9urdID1GTk;▐ Version disponible :
+XFmNtldkcQ; '$GitVersion'
+wnFTQ1ftWD;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+fpVeIO3IC0;═══════════════════════════════════════════════════════════════
+f6nbQlMCCo;► Page d'aide de '-version'
+FiF6CVpYNQ;Syntaxe : Get-Driver -version
+hHtPEsuHFf;Paramètre :
+Xf4Md77k0P;    -version ; Permet d'afficher la version installée
+xdMDttE43O;Valeur exemple :
+ojaGIOv7k3;    --
+WTuScOFK4O;Info :
+rQUCiCrVa6;     La commande permet d'afficher la version actuellement installée.
+agZpmxEyDP;Pour vérifier si une autre version est disponible, utilisez '-updateGit'.
+MAA63dt3lf;═════════════════════════════════════════════════════════════════
+o49ohYOXhF;Version actuelle de Get-Drivers :
+hZgndz4Fqp; $versionNumerique
+KQGpCqQYJE;Erreur, Git ne fonctionne pas, vérifiez votre installation ou téléchargez-le. Si l'erreur persiste, installez GIT !
+tMFmr6IlzJ;Sauvegarde créée !
+k8MY6sxzUb;Erreur lors de la création de la sauvegarde.
+weIqrgg1Aw;Mise à jour réussie !
+QhLrD5UEoT;Erreur lors de la mise à jour, récupération en cours !
+9se19IIl9D;Erreur, la récupération a échoué !
+RtC5zODY4L;Erreur, votre version n'a pas besoin de mise à jour.
+aQlC2CweUA;Entrez -updateGit pour chercher les mises à jour disponibles.
+XtKAbEARrj;Internet n'est pas accessible. Certaines commandes peuvent ne pas fonctionner !
+X526egeP2y;La session n'est pas en mode administrateur.
+15Kd3sGb86;Exécutez le script en tant qu'administrateur pour ajouter le chemin du programme.
+VoQ8pijBdv;La session est en mode administrateur.
+OwrVxfYphV;Ajout du répertoire au PATH...
+hglgIcirGt;Le répertoire a été ajouté au PATH.
+7iSuNto3Q6;Aucun paramètre entré ! Entrez un paramètre exemple '-help'.
+7cwHkEOzpY;Erreur : n7w2pJ9B
+jljydD1Iqq;Erreur lors de la récupération du texte à chercher !
+nqfLbFGItP;Erreur : 3wrPiS98
+vLp5KKZJI1;Erreur : 4G3irtJc
+yeNFSkvSOz;Internet n'est pas accessible. Certaines commandes peuvent être impossibles !
+f2Ei3VPzcC;Mise à jour terminée !
+Bf68zY5onT;Erreur : T5sj22Gd
+nr9y2Jca31;Erreur lors de la récupération du texte à chercher !
+Uy33u3GHBz;Erreur : y6F6i6fP
+5krGzThOP3;Erreur lors de la récupération du texte à chercher !
+oGo4Mx3Ppu;Erreur : Z8rPuS91
+5SvOrCBJpk;Erreur lors de la récupération du texte à chercher !
+aKffnFzDKb;Commande terminée !
+3GXgucKEiu;Erreur : Z88Pll91
+sroe2RAM75;Erreur : yf5Eg7C2
+wUOWUbqFBJ;Erreur : yf5Eg7C2
+3sjOCz5OeO;Internet n'est pas accessible. Certaines commandes peuvent être impossibles !
+17l41sgBnW;Erreur : BfUEg6h2
