@@ -64,9 +64,9 @@ if (-Not (Test-Path "$env:USERPROFILE\Get-Drivers\Download")) {
 if ($wingetInstalled -eq "y") {
 
     # Vérifier si Python est déjà installé avec Winget
-    $pythonApp = Get-WinGetPackage -Name "Python" -Exact
-    if ($pythonApp -eq $null) {
-        Write-Host "Python n'est pas installé !" -ForegroundColor Green
+    $pythonApp = Winget -Name "Python" -Exact
+    if (!$?) {
+        Write-Host "Python n'est pas installé !" -ForegroundColor Red
         # Installation de Python avec Winget
         winget install "Python" --scope=machine --accept-package-agreements --silent --disable-interactivity
     } else {
@@ -74,8 +74,8 @@ if ($wingetInstalled -eq "y") {
     }
 
     # Vérifier si Git est déjà installé avec Winget
-    $gitApp = Get-WinGetPackage -Name "Git" -Exact
-    if ($gitApp -eq $null) {
+    $gitApp = Winget -Name "Git" -Exact
+    if (!$?) {
         Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
         winget install "Git" --scope=machine --accept-package-agreements --silent --disable-interactivity
