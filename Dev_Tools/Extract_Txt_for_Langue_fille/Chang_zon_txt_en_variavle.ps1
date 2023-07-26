@@ -1,5 +1,40 @@
-﻿# Définir le chemin du fichier 'get-drivers.ps1'
+﻿
+# Change en txt tamporaire les aucurence déja existante
+# Définir le chemin du fichier 'get-drivers.ps1'
 $scriptFilePath = "get-drivers.ps1"
+
+# Charger le contenu du fichier 'get-drivers.ps1'
+$scriptContent = Get-Content -Path $scriptFilePath
+
+# Créer un tableau pour stocker les lignes modifiées
+$nouveauContenu = @()
+
+# Parcourir chaque ligne du fichier
+foreach ($ligne in $scriptContent) {
+    # Vérifier si la ligne contient "$ExecutionContext.InvokeCommand.ExpandString("$txtX")" où X est un nombre
+    if ($ligne -match '(\$ExecutionContext\.InvokeCommand\.ExpandString\("\$txt\d+"\))') {
+        # Remplacer la ligne avec la nouvelle chaîne
+        $nouvelleLigne = $ligne -replace '\$ExecutionContext\.InvokeCommand\.ExpandString\("\$txt\d+"\)', '"Temporaire Txt"'
+    } else {
+        # Conserver les autres lignes telles quelles
+        $nouvelleLigne = $ligne
+    }
+
+    # Ajouter la nouvelle ligne au tableau
+    $nouveauContenu += $nouvelleLigne
+}
+
+# Écrire le contenu modifié dans le fichier 'get-drivers-2.ps1'
+$nouveauContenu | Out-File -FilePath "get-drivers-2.ps1" -Force
+
+
+
+
+
+
+
+# Définir le chemin du fichier 'get-drivers.ps1'
+$scriptFilePath = "get-drivers-2.ps1"
 
 # Charger le contenu du fichier 'get-drivers.ps1'
 $scriptContent = Get-Content -Path $scriptFilePath
@@ -37,3 +72,4 @@ foreach ($ligne in $scriptContent) {
 
 # Écrire le contenu modifié dans le fichier 'get-drivers-2.ps1'
 $nouveauContenu | Out-File -FilePath "get-drivers-2.ps1" -Force
+
