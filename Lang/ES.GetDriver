@@ -25,7 +25,7 @@ MNzCKsLEVl; -updateGit ; Permite buscar actualizaciones.
 1MMywVQELg; -upgradeGit ; Permite descargar y aplicar una nueva versión.
 lemMkcqSqn; -help ; Muestra esta página de ayuda.
 8uP7gHUfaM; -mydr ; Muestra los controladores instalados.
-3Jg87Jx898; -lang 'fr' ; Para cambiar el idioma a francés
+3Jg87Jx898; -lang 'es' ; Para cambiar el idioma a español
 WRTz4mY4qH;---------------------------------------------------------------
 OdSgFrkncr;Valor:
 C2XsnH7OSo; 'applyold' Se utiliza con la opción -upgrade y permite cargar una lista ya existente.
