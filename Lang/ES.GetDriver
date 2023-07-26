@@ -1,0 +1,254 @@
+﻿ue8cnZdhx7;Idioma cambiado a '$FichierLangTrouvez'.
+OeHx79xhxY;Error durante el cambio de idioma!
+UGjs75snx2;Error el idioma '$Str' no se encuentra!
+kS675dhxjt;---------------
+92hvjfFhkx;Idiomas disponibles:
+LEDhx76bhx;► 
+PrGH767x8S;$lang
+55Fhbs6Dxj;---------------
+9djhZ65x9c;---------------
+PIUHgJ75xf;Idiomas disponibles:
+P3HxjxGZ73;►
+Oidncz3jJH;$lang
+08Hx6nxhHb;---------------
+Tde83Nirvh;═══════════════════════════════════════════════════════════════
+pKpXHMsttb;► Página de ayuda
+RfQUH99gCZ;Sintaxis: Get-Driver -list 'tt' o -list 'nourl' o -help
+fjJk3TbPk8;Parámetro:
+UNjImWSybN; -list ; Muestra la lista completa de controladores disponibles.
+I7NeIGe0gH; -version ; Muestra la versión actual.
+fzpGF6JE9Y; -serch 'txt+txt' ; Permite hacer una búsqueda entre los controladores.
+DZvJIgOSns; -install 'txt'; Permite instalar uno de los controladores.
+VKik4iVpbw; -update ; Permite actualizar la lista de controladores.
+yktccfidCq; -upgrade 'txt' ; Permite hacer una búsqueda de controladores. Usar 'apply' permite agregar los datos recuperados.
+MNzCKsLEVl; -updateGit ; Permite buscar actualizaciones.
+1MMywVQELg; -upgradeGit ; Permite descargar y aplicar una nueva versión.
+lemMkcqSqn; -help ; Muestra esta página de ayuda.
+8uP7gHUfaM; -mydr ; Muestra los controladores instalados.
+3Jg87Jx898; -lang 'fr' ; Para cambiar el idioma a francés
+WRTz4mY4qH;---------------------------------------------------------------
+OdSgFrkncr;Valor:
+C2XsnH7OSo; 'applyold' Se utiliza con la opción -upgrade y permite cargar una lista ya existente.
+1QVAHSlRj1; 'apply' Se utiliza con la opción -upgrade para aplicar los datos encontrados.
+HsjczVBt2Z; 'url' Se utiliza con la opción -list para mostrar solo las líneas cuyo contenido comienza con http.
+Q25FrYPv6A; 'tt' Se utiliza con la opción -list permite conocer el número de controladores listados.
+ZCGfpnZ8te; 'nourl' Se utiliza con la opción -list para mostrar los controladores descargados.
+U157jmqhMz;═══════════════════════════════════════════════════════════════
+MXL0H9UPSs;Búsqueda en curso. 
+C0UicFmEwL;...
+6CAYEY77fF;═══════════════════════════════════════════════════════════════
+sriHyC1PXq;► Página de ayuda de '-serch'
+SJqAbegWfe;Sintaxis : Get-Driver -serch 'palabra_1+palabra_2'
+AlvB3KWwvs;Parámetros:
+BXuMAUSNua; -serch ; Permite hacer una búsqueda entre los controladores.
+NWrG3wWA6k;Valor de ejemplo:
+2kcAFH6hOo; 'txt1+txt2'
+pEepo5ZdAG;Información:
+O7gZVRwTiv; Es posible buscar varias palabras.
+4MjwBVuoTl; que deben estar en la misma línea, separándolas con el signo '+'.
+XxnpRqApW3;═══════════════════════════════════════════════════════════════
+TPh3PUp2dj;Contenido similar encontrado.
+mSEwArHxv6;►
+DkyGUaU0Io; $txt
+QG6oboppgr;◄
+p1Lt9Ft1oj;¡No hay coincidencias! nVerifica que la lista esté actualizada. '-update' 
+jN4aztbajz;Error 'b9SB48vt' 
+EWAmHXfzZS;Contenido similar encontrado. 
+753kgsC7sa;► 
+XeK4uU47f8; $txt 
+1MjRe8FGCF;◄ 
+Idod54OBO5;¡No hay coincidencias! `nVerifica que la lista esté actualizada. '-update'
+xVsKUjLF2w;Error: el directorio '$cheminDossier' no se encuentra!
+dhUabuVlFh;Error: el archivo '$cheminFichierTxt' debe ser creado!
+m65nR4zr9z;¡El archivo ha sido creado correctamente!
+G2tkKfeZ64;¡No se pudo crear el archivo, verifica tus permisos!
+w9OQllIOBK;-
+jm6qT1aE2Z; $url
+ueGCplxtP5;Error al agregar el camino concatenado!
+P6pKumspBq;-
+vlpyQe5CRT; $nomFichier
+FZghJR3LkA;Error al agregar el camino concatenado!
+aDLCVWp1YM;Error al corregir los duplicados!
+uZ34srv2Jm;═══════════════════════════════════════════════════════════════
+fZ1fTno251;► Página de ayuda de '-list'
+vaAqEpVAwK;Sintaxis : Get-Driver -list tt, nourl, url
+a4yRWApRxC;Parámetros :
+piUagALqss; -list ; Muestra la lista completa de controladores disponibles.
+rw5gbUZNzD;Valores de ejemplo:
+WvG8MklkIS; tt
+7XF3MMFjJE; nourl
+eoREcn8R0B; url
+QcqOHdYXPt;Información:
+xHMsNEELia; 'tt' Muestra el total de controladores en la lista.
+eFZuwRiKE6; 'nourl' Muestra todos los controladores locales.
+SXCDTUvOVq; 'url' Muestra todos los controladores no locales.
+6EY8QNwfQB;═══════════════════════════════════════════════════════════════
+ZTOdhKD5cz;►
+4NTSaaFJY3; Líneas sin enlace. : $ligne
+S0z1eZradj;►
+fC4Dh8IigJ; Total de controladores (Drivers)
+QzwfvsvFi0;'$nombreLignes'
+HmHWsieX9H;►
+dmc2U2SQvb; Controladores locales
+ShmPmcETFv;'$nombreLignesSansHttp'
+mJ1oUciZNn;►
+kmMCaDxG9m; Controladores URLs
+mBGUVjTFez;'$nombreLignesAvecHttp'
+Mkcc4BBIFw;►
+NgixrTNvzI; "Enlaces encontrados: $lien
+Qg1ttlCgSv;►
+Id5YaAJuIZ; : $contenuApresDossier2
+CpANYFcTmC;═══════════════════════════════════════════════════════════════
+VhQVjqstsS;► Página de ayuda de '-install'
+80CEibtbMg;Sintaxis : Get-Driver -install 'Nombre_mas_cercano.exe'
+XGMWmDgBay;Parámetros:
+u6y551EA4s; -install ; Permite instalar uno de los controladores.
+Hx31esRCz1;Valores de ejemplo:
+f8rlIYpBYP; '0_x64_Software.exe'
+Hte96CBHJr;Información:
+WsgeZjMV14; Recupera el nombre del controlador en la lista de controladores con -list o -serch
+weLiTwONwg; Agrega el nombre del controlador como parámetro a -install
+MDlokXS44c; Si tu parámetro se parece a varios otros.
+qJ3HewbNLj; Una lista pedirá elegir entre los 10 primeros.
+MTJddnh5qK;═══════════════════════════════════════════════════════════════
+xyVmfTG13C;Selección : '$ContenuFichier'
+QSaZOmlEEh;¡Error, el nombre del controlador es incorrecto!
+UBBNU23IL7;¡Use '-serch' para verificar el nombre o '-update' para actualizar la lista!
+yPgQUhb7DD;¡Instalación exitosa!
+ayfKHazTzm;El operador '/qn' no funciona.
+tmVKYf7SDx;El operador '/quiet' no funciona.
+ou5OtWrQYX;Terminado
+BIRSDlvP1O;Error, imposible abrir el archivo. '$ContenuFichier'
+1fYD6L3W2z;Error al ejecutar el archivo. '$ContenuFichier'
+kJ4QZp2Rav;¡Segundo intento exitoso!
+sj5cllUDHw;Error, el segundo intento también ha fallado!
+tsby5JW2Rh;¡La carpeta 'Download' está creada!
+cUXjx1OB3X;¡Error al extraer el archivo!
+seyFfSj6bV;Error al eliminar el archivo ZIP!
+K6sqigm9C7;Instalación completada
+NTfeTZiOQy;Error al ejecutar el archivo. '${$batFile.FullName}'
+1hDu7xsNdq;Instalación completada
+i7WnTD7KIc;Error al ejecutar el archivo. '${$heaviestExe.FullName}'
+SkbGerMfZV;Instalación completada
+tsBTJm37sv;Error al ejecutar el archivo. '${$heaviestMsi.FullName}'
+yZgWYP62KQ;Instalación completada
+cYGxgRG6QQ;Error al ejecutar el archivo. '${$heaviestExe.FullName}'
+kNxH706Deq;Instalación completada
+K9bXo3EFrO;Error al ejecutar el archivo. '${$heaviestMsi.FullName}'
+uUUJ3UlNx1;Error al eliminar el archivo. '$DossierZip'
+g6qcKkmYYi;Formato del archivo '$extension'
+S2YdGc7tJm;Descarga del archivo '$NomFichier'
+NBOBfP3nOm; [Terminado]
+OsPmKNS8ME; [Error]
+RpqJ5260Da;Ejecución finalizada
+hn3GwfwBB1;Eliminación exitosa
+AxfygZRJrA;¡Error al ejecutar el archivo '$NomFichier'!
+9duVgFdH3j;¡La carpeta 'Download' está creada!
+cLxC3uNE2h;¡Error al extraer el archivo!
+kBk55wou8c;¡Error al eliminar el archivo ZIP!
+k5ojVD2ijq;Instalación finalizada
+CpHbYy9d4v;¡Error al ejecutar el archivo! '${$batFile.FullName}'
+MNRJa72zat;Instalación finalizada
+bsIa9hgOq0;¡Error al ejecutar el archivo! '${$heaviestExe.FullName}'
+1oeLf53JgG;Instalación finalizada
+xL0MQWnfIY;¡Error al ejecutar el archivo! '${$heaviestMsi.FullName}'
+LCIzPTgrc0;Instalación finalizada
+WCXSimfh2Y;¡Error al ejecutar el archivo! '${$heaviestExe.FullName}'
+DfymBwkcGy;Instalación finalizada
+9JSk9tXZCo;¡Error al ejecutar el archivo! '${$heaviestMsi.FullName}'
+AIzZIYnRbD;¡Error al eliminar el archivo! '$DossierZip'
+GMKmz9u9bb;¡Varios archivos coinciden con tu elección!
+UqimWNuxSy;[$i] ► $chemin[$i]
+PFfNY5pZdm;¡Introduce el número que corresponda a tu elección!
+ISACsw8pu9;¡Error, máximo 10!
+8X8kTTjMD5;¡Error, mínimo 0!
+oz9myAq7O4;Selección : '$ContenuFichier'
+TVfzTBpf4j;¡Error al llamar a la función, installLocal!
+ttjswlpj1S;Internet no es accesible. ¡Comando imposible!
+0Ay6NvTXhA;¡Error: el comando falló!
+GE9KjBIUch;═══════════════════════════════════════════════════════════════
+4VQytF3LLJ;► Página de ayuda de '-upgrade'
+XnUaQFMOAi;Sintaxis: Get-Driver -upgrade 'apply', 'applyold'
+L3L3iotYJu;Parámetro :
+dVHTXetANI; -upgrade ; Permite instalar uno de los drivers.
+2HMYnduj4d;Valor ejemplo :
+z3T3VAKXPE; 'applyold'
+WeCapCgACv;Información :
+VLB2qDrxPF; El comando permite actualizar la lista de drivers de, '-list' y 'serch'
+3Kep5jBN8W; 'applyold' Permite aplicar una búsqueda de drivers ya hecha,
+UWuIvXFvsk; 'apply' Ejecuta una búsqueda de drivers en línea y los aplica a la lista.
+6tgIHn1bNR; El comando sin parámetro ejecutará una búsqueda de drivers pero no se añadirá a la lista.
+TWHKKLAWfF;═══════════════════════════════════════════════════════════════
+BSCpb9b3GS;La URL ya existe en el archivo 'url.txt'. No se necesita ninguna acción.
+iID4isYFsz;Error, la función 'apply' que permite agregar los datos encontrados ha fallado!
+3sItsImq6z;Error, el archivo no se encuentra. ¡Use -upgrade 'apply'!
+GvgZCpBmlm;Cambio automático del parámetro 'applyold' por 'apply'.
+bSSL7tTZup;Error, Python no está instalado o no se ha agregado al 'Path'.
+3y4HKSSddh;Error, el intento de ejecutar 'Install.ps1' ha fallado!
+5oF6ixln22;Iniciando la búsqueda de drivers.
+qveFXkZ6w8;...
+yM5R5S0ZOt;Error, la función 'apply' que permite agregar los datos encontrados ha fallado!
+XiJDqxNVmJ;Error al recuperar la versión local!
+Iph28HTyuj;Error al recuperar la versión remota!
+5zOUvrjHqs;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+qMIE4HVlXB;▐ Tu versión es inferior a la nueva versión disponible!
+OqOAl7whBf;▐ Utiliza el comando '-upgradeGit' para instalarla.
+VftkiajTeu;▐ Versión instalada :
+LPE6lYusCo; '$LocalVersion'
+w1sMvOkOty;▐ Versión disponible :
+4BGLWKdhfe; '$GitVersion'
+iBGmz8mSYN;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+NDfWsexgzT;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+0Ukq0JJ2jb;▐ ¡Tu versión está al día!
+4MNiGvvFWw;▐ Versión instalada :
+mS0fk0gud2; '$LocalVersion'
+W6sMnNbawq;▐ Versión disponible :
+ztt6SA06Q7; '$GitVersion'
+tsKCqieEG9;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+nYZqE8eA42;═══════════════════════════════════════════════════════════════
+RgZu9ptJpm;► Página de ayuda de '-version'
+crIYHHEgyN;Sintaxis : Get-Driver -version
+Wl6kKPhcbY;Parámetro :
+QtK9IHzNOz; -version ; Permite mostrar la versión instalada.
+crNuCdL8lw;Valor de ejemplo :
+oEVc8pkzjt; --
+IRsRWtgIP9;Información :
+S0R8uoXLhq; El comando permite mostrar la versión actualmente instalada.
+Ej0ptLXrBc; Para verificar si hay otra versión disponible. '-updateGit'
+h9oerL96XS;═══════════════════════════════════════════════════════════════
+H546vwcpgJ;Versión actual de Get-Drivers:
+gZbMmeXyNB; $versionNumerique
+VRdzn4bukd;Error, git no funciona. Verifique su instalación o descárguelo. ¡Si el error persiste, instale GIT!
+xqMWXwPbxV;¡Copia de seguridad creada!
+81xb7qSNEu;Error al crear la copia de seguridad.
+YzOg8zbET1;¡Actualización exitosa!
+VrFDW0MEy0;Error durante la actualización, recuperación en curso!
+O5B1CeeB27;Error, la recuperación ha fallado!
+lOqzE7bqYh;Error, su versión no necesita una actualización.
+UKI6AQvuFH;Escriba -updateGit para buscar actualizaciones disponibles.
+dNYOfcyXde;Internet no está accesible. `n¡Algunos comandos pueden no funcionar!
+VZMVPHBQ8Y;La sesión no está en modo administrador.
+YgqQfExE1v;Ejecute el script en modo Administrador para agregar la ruta del programa.
+st6vdYzcTm;La sesión está en modo administrador.
+IDM3M48wq2;Agregando el directorio al PATH...
+Pfvqs7hHsb;El directorio se ha agregado al PATH.
+dmFW9vmrfD;¡No se ingresó ningún parámetro! `nIngrese un parámetro, por ejemplo '-help'
+S3bgydGtoN;Error n7w2pJ9B
+dNLaMMLpAV;¡Error al recuperar el texto a buscar!
+r3nv7dfVhb;Error 3wrPiS98
+QT7PYwtcn2;Error 4G3irtJc
+PD1wLQbpJx;Internet no está accesible. ¡Comando imposible!
+j7rJVZQpiV;¡Actualización terminada!
+8uMN7KP5Ba;Error T5sj22Gd
+ctBIGoB0kr;¡Error al recuperar el texto a buscar!
+BzMu1Sly48;Error y6F6i6fP
+zTQwNuxte7;¡Error al recuperar el texto a buscar!
+FYb0BdzoEZ;Error Z8rPuS91
+lI2Awe6jaO;¡Error al recuperar el texto a buscar!
+lGEKiKuPRg;¡Comando terminado!
+huHEz1LsL9;Erreur Z88Pll91
+GQeCXraQAt;Erreur yf5Eg7C2
+xNTPV9TQS0;Erreur yW59g9r2
+sjXi10ByL4;Internet no es accesible. ¡Comando imposible!
+SOXaIVlBw0;Erreur BfUEg6h2
+Uztej896d6;Erreur tzu8JHdQ
