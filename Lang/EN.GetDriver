@@ -1,4 +1,17 @@
-﻿Tde83Nirvh;═══════════════════════════════════════════════════════════════
+﻿ue8cnZdhx7; Language changed to '$FichierLangTrouvez'.
+OeHx79xhxY;Error during language change !
+UGjs75snx2;Error the language '$Str' could not be found!
+kS675dhxjt;---------------
+92hvjfFhkx;Available language:
+LEDhx76bhx;► 
+PrGH767x8S;$lang
+55Fhbs6Dxj;---------------
+9djhZ65x9c;---------------
+PIUHgJ75xf;Available language:
+P3HxjxGZ73;►
+Oidncz3jJH;$lang
+08Hx6nxhHb;---------------
+Tde83Nirvh;═══════════════════════════════════════════════════════════════
 pKpXHMsttb;► Help page
 RfQUH99gCZ;Syntax: Get-Driver -list 'tt' or -list 'nourl' or -help
 fjJk3TbPk8;Parameter:
@@ -12,6 +25,7 @@ MNzCKsLEVl; -updateGit ; Allows to search for updates.
 1MMywVQELg; -upgradeGit ; Allows to download and apply a new version.
 lemMkcqSqn; -help ; Displays this help page.
 8uP7gHUfaM; -mydr ; Displays the installed drivers.
+3Jg87Jx898;    -lang 'en' ; To change the language to English
 WRTz4mY4qH;---------------------------------------------------------------
 OdSgFrkncr;Value:
 C2XsnH7OSo; 'applyold' Is used with the -upgrade option and allows to load an already existing list.

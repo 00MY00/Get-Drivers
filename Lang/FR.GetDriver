@@ -1,4 +1,17 @@
-﻿Tde83Nirvh;═══════════════════════════════════════════════════════════════
+﻿ue8cnZdhx7;Langue changée en '$FichierLangTrouvez'.
+OeHx79xhxY;Erreur lord du changement de langue !
+UGjs75snx2;Erreur la langue '$Str' est introuvable !
+kS675dhxjt;---------------
+92hvjfFhkx;Langue disponible :
+LEDhx76bhx;► 
+PrGH767x8S;$lang
+55Fhbs6Dxj;---------------
+9djhZ65x9c;---------------
+PIUHgJ75xf;	Langue disponible :
+P3HxjxGZ73;►
+Oidncz3jJH;$lang
+08Hx6nxhHb;---------------
+Tde83Nirvh;═══════════════════════════════════════════════════════════════
 pKpXHMsttb;► Page d'aide
 RfQUH99gCZ;Syntaxe : Get-Driver -list 'tt' ou -list 'nourl' ou -help
 fjJk3TbPk8;Paramètre :
@@ -12,6 +25,7 @@ MNzCKsLEVl;    -updateGit ; Permet de rechercher des mises à jour.
 1MMywVQELg;    -upgradeGit ; Permet de télécharger et appliquer une nouvelle version.
 lemMkcqSqn;    -help ; Affiche cette page d'aide.
 8uP7gHUfaM;    -mydr ; Afficher les pilotes installés.
+3Jg87Jx898;    -lang 'fr' ; Pour changer la langue en Francais
 WRTz4mY4qH;---------------------------------------------------------------
 OdSgFrkncr;Valeur :
 C2XsnH7OSo;    'applyold' S'utilise avec l'option -upgrade et permet de charger une liste déjà existante.
@@ -237,3 +251,4 @@ GQeCXraQAt;Erreur yf5Eg7C2
 xNTPV9TQS0;Erreur yW59g9r2
 sjXi10ByL4;Internet n'est pas accessible. Commande impossible !
 SOXaIVlBw0;Erreur BfUEg6h2
+Uztej896d6;Erreur tzu8JHdQ
