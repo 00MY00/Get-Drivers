@@ -9,7 +9,7 @@ Z8rPuS91 = command : install : l'appel de la fonction install a échouer : exit 
 Z88Pll91 = command : upgrade : l'appel de la fonction upgrade a échouer : exit code 1
 yf5Eg7C2 = command : updateGit : l'appel de la fonction updateGit a échouer : exit code 1
 BfUEg6h2 = command : upgradeGit : l'appel de la fonction upgradeGit a échouer : exit code 1
-
+tzu8JHdQ = command : lang: l'appel de la fonction langa échouer : exit code 1
 
 
 
