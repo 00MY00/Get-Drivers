@@ -2,129 +2,129 @@
 pKpXHMsttb;► Page d'aide
 RfQUH99gCZ;Syntaxe : Get-Driver -list 'tt' ou -list 'nourl' ou -help
 fjJk3TbPk8;Paramètre :
-UNjImWSybN;    -list ; Affiche la liste complaite des driveur disponible
-I7NeIGe0gH;    -version ; Affiche la version actuel
-fzpGF6JE9Y;    -serch 'txt+txt' ; Permet de fair une recherche parmi les drivers
-DZvJIgOSns;    -install 'txt'; Permet d'installer un des driver
-VKik4iVpbw;    -update ; Permet de mettre ajoure les list de drivers
-yktccfidCq;    -upgrade 'txt' ; Permet de fair une recherche de Drivers utiliser 'apply' permet d'ajouter les donnée récupéré
-MNzCKsLEVl;    -updateGit ; Permet de rechercher des mise a joure
-1MMywVQELg;    -upgradeGit ; Permet de télécharger et apliquer une nouvelle verssion
-lemMkcqSqn;    -help ; Affiche cet page d'aide
-8uP7gHUfaM;    -mydr ; Afficher les Drivers installé
+UNjImWSybN;    -list ; Affiche la liste complète des pilotes disponibles.
+I7NeIGe0gH;    -version ; Affiche la version actuelle.
+fzpGF6JE9Y;    -serch 'txt+txt' ; Permet de faire une recherche parmi les pilotes.
+DZvJIgOSns;    -install 'txt'; Permet d'installer l'un des pilotes.
+VKik4iVpbw;    -update ; Permet de mettre à jour la liste des pilotes.
+yktccfidCq;    -upgrade 'txt' ; Permet de faire une recherche de pilotes. Utiliser 'apply' permet d'ajouter les données récupérées.
+MNzCKsLEVl;    -updateGit ; Permet de rechercher des mises à jour.
+1MMywVQELg;    -upgradeGit ; Permet de télécharger et appliquer une nouvelle version.
+lemMkcqSqn;    -help ; Affiche cette page d'aide.
+8uP7gHUfaM;    -mydr ; Afficher les pilotes installés.
 WRTz4mY4qH;---------------------------------------------------------------
 OdSgFrkncr;Valeur :
-C2XsnH7OSo;    'applyold' s'utilise avec -upgrade et permet de charger une list déja existante
-1QVAHSlRj1;    'apply' s'utilise avec -upgrade pour apliquer les nonner trouvée
-HsjczVBt2Z;    'url' s'utilise avec -list permet d'afficher que les ligne et le contenu commancent par http
-Q25FrYPv6A;    'tt' s'utilise avec -list permet de conaitre le nombre de driveur répertorier
-ZCGfpnZ8te;    'nourl' s'utilise avec -list permet d'afficher les driveur téléchargée
+C2XsnH7OSo;    'applyold' S'utilise avec l'option -upgrade et permet de charger une liste déjà existante.
+1QVAHSlRj1;    'apply' S'utilise avec l'option -upgrade pour appliquer les données trouvées.
+HsjczVBt2Z;    'url' S'utilise avec l'option -list pour n'afficher que les lignes dont le contenu commence par http.
+Q25FrYPv6A;    'tt' S'utilise avec l'option -list permet de connaître le nombre de pilotes répertoriés.
+ZCGfpnZ8te;    'nourl' S'utilise avec l'option -list permet d'afficher les pilotes téléchargés.
 U157jmqhMz;═══════════════════════════════════════════════════════════════
-MXL0H9UPSs;Recherche en cours 
+MXL0H9UPSs;Recherche en cours. 
 C0UicFmEwL;...
 6CAYEY77fF;═══════════════════════════════════════════════════════════════
 sriHyC1PXq;► Page d'aide de '-serch'
 SJqAbegWfe;Syntaxe : Get-Driver -serch 'mot_1+mot_2'
-AlvB3KWwvs;Paramètre :
-BXuMAUSNua;    -sech ; permet de fair une recherche parmi les drivers
+AlvB3KWwvs;Paramètres :
+BXuMAUSNua;    -sech ; Permet de faire une recherche parmi les pilotes.
 NWrG3wWA6k;Valeur example :
 2kcAFH6hOo;    'txt1+txt2'
 pEepo5ZdAG;Info :
-O7gZVRwTiv;    Il est possible de cherche plusieur mot
-4MjwBVuoTl;    qui devrai etre dans la même ligne en les céparent avec le signe '+'
+O7gZVRwTiv;    Il est possible de chercher plusieurs mots.
+4MjwBVuoTl;    qui devraient être dans la même ligne en les séparant avec le signe '+'.
 XxnpRqApW3;═══════════════════════════════════════════════════════════════
-TPh3PUp2dj;Contenu semblable trouvez
+TPh3PUp2dj;Contenu semblable trouvé.
 mSEwArHxv6;►
 DkyGUaU0Io;    $txt
 QG6oboppgr;◄
-p1Lt9Ft1oj;Aucunne Corespondance ! `nVérifiez que la list est actualiser '-update'
+p1Lt9Ft1oj;Aucune correspondance ! `nVérifiez que la liste est actualisée. '-update'
 jN4aztbajz;Erreur 'b9SB48vt'
-EWAmHXfzZS;Contenu semblable trouvez
+EWAmHXfzZS;Contenu semblable trouvé.
 753kgsC7sa;►
 XeK4uU47f8;    $txt
 1MjRe8FGCF;◄
-Idod54OBO5;Aucunne Corespondance ! `nVérifiez que la list est actualiser '-update'
+Idod54OBO5;Aucune correspondance ! `nVérifiez que la liste est actualisée. '-update'
 xVsKUjLF2w;Erreur : le dossier '$cheminDossier' est introuvable !
 dhUabuVlFh;Erreur : le fichier '$cheminFichierTxt' doit être créé !
 m65nR4zr9z;Le fichier a bien été créé !
 G2tkKfeZ64;Le fichier n'a pas pu être créé, vérifiez vos droits !
 w9OQllIOBK;-
 jm6qT1aE2Z; $url
-ueGCplxtP5;Erreur d'ajout du chemin concaténé
+ueGCplxtP5;Erreur d'ajout du chemin concaténé !
 P6pKumspBq;-
 vlpyQe5CRT; $nomFichier
-FZghJR3LkA;Erreur d'ajout du chemin concaténé
-aDLCVWp1YM;Erreur lors du correctif des doublons.
+FZghJR3LkA;Erreur d'ajout du chemin concaténé !
+aDLCVWp1YM;Erreur lors de la correction des doublons !
 uZ34srv2Jm;═══════════════════════════════════════════════════════════════
 fZ1fTno251;► Page d'aide de '-list'
 vaAqEpVAwK;Syntaxe : Get-Driver -list tt, nourl, url
-a4yRWApRxC;Paramètre :
-piUagALqss;    -list ; Affiche la liste complaite des driveur disponible
-rw5gbUZNzD;Valeur example :
+a4yRWApRxC;Paramètres :
+piUagALqss;    -list ; Affiche la liste complète des pilotes disponibles.
+rw5gbUZNzD;Valeurs exemples :
 WvG8MklkIS;    tt
 7XF3MMFjJE;    nourl
 eoREcn8R0B;    url
 QcqOHdYXPt;Info :
-xHMsNEELia;    'tt' Affiche le totale de drivers dans la liste
-eFZuwRiKE6;    'nourl' Affiche tous les driveur local
-SXCDTUvOVq;    'url' Affiche tous les driveur non local
+xHMsNEELia;    'tt' Affiche le total de pilotes dans la liste.
+eFZuwRiKE6;    'nourl' Affiche tous les pilotes locaux.
+SXCDTUvOVq;    'url' Affiche tous les pilotes non locaux.
 6EY8QNwfQB;═══════════════════════════════════════════════════════════════
 ZTOdhKD5cz;►
-4NTSaaFJY3; Ligne sans lien : $ligne
+4NTSaaFJY3; Lignes sans lien. : $ligne
 S0z1eZradj;►
-fC4Dh8IigJ; Totale Drivers 
+fC4Dh8IigJ; Total des pilotes (Drivers) 
 QzwfvsvFi0;'$nombreLignes'
 HmHWsieX9H;►
-dmc2U2SQvb; Drivers  Local 
+dmc2U2SQvb; Pilotes  local 
 ShmPmcETFv;'$nombreLignesSansHttp'
 mJ1oUciZNn;►
-kmMCaDxG9m; Drivers   URLs 
+kmMCaDxG9m; Pilotes   URLs 
 mBGUVjTFez;'$nombreLignesAvecHttp'
 Mkcc4BBIFw;►
-NgixrTNvzI; Lien trouvé : $lien
+NgixrTNvzI; "Liens trouvés : $lien
 Qg1ttlCgSv;►
 Id5YaAJuIZ; : $contenuApresDossier2
 CpANYFcTmC;═══════════════════════════════════════════════════════════════
 VhQVjqstsS;► Page d'aide de '-install'
 80CEibtbMg;Syntaxe : Get-Driver -install 'Nom_le_plus_proch.exe'
-XGMWmDgBay;Paramètre :
-u6y551EA4s;    -install ; Permet d'installer un des driver
-Hx31esRCz1;Valeur example :
+XGMWmDgBay;Paramètres :
+u6y551EA4s;    -install ; Permet d'installer l'un des pilotes.
+Hx31esRCz1;Valeurs exemples :
 f8rlIYpBYP;    '0_x64_Software.exe'
 Hte96CBHJr;Info :
-WsgeZjMV14;    Récupérer le nom du driver dans la list de driver avec -list ou -serch
-weLiTwONwg;    ajouter le nom du driveur en paramètre a -install
-MDlokXS44c;    ci votre paramètre est semblable a plusieur autre 
-qJ3HewbNLj;    une list demendra de choisir parmi les 10 premier
+WsgeZjMV14;    Récupérer le nom du pilote dans la liste de pilotes avec -list ou -serch
+weLiTwONwg;    Ajouter le nom du pilote en paramètre à -install
+MDlokXS44c;    Si votre paramètre est semblable à plusieurs autres. 
+qJ3HewbNLj;    Une liste demandera de choisir parmi les 10 premiers.
 MTJddnh5qK;═══════════════════════════════════════════════════════════════
 xyVmfTG13C;Séléction : '$ContenuFichier'
-QSaZOmlEEh;Erreur le nom du driver est incorecte !
-UBBNU23IL7;Utilise '-serch' pour verifier le nom ou '-update' pour actualiser la liste !
+QSaZOmlEEh;Erreur, le nom du pilote est incorrect !
+UBBNU23IL7;Utilisez '-serch' pour vérifier le nom ou '-update' pour actualiser la liste !
 yPgQUhb7DD;Installation réussie !
-ayfKHazTzm;L'operateur '/qn' ne fonctionne pas
-tmVKYf7SDx;L'opérateur '/quiet' ne fonctionne pas
+ayfKHazTzm;L'opérateur '/qn' ne fonctionne pas.
+tmVKYf7SDx;L'opérateur '/quiet' ne fonctionne pas.
 ou5OtWrQYX;Terminée
-BIRSDlvP1O;Erreur imposible d'ouvrire le fichier '$ContenuFichier'
-1fYD6L3W2z;Erreur Lord de l'execution du fichier '$ContenuFichier'
-kJ4QZp2Rav;Deuxième tentative réusit !
-sj5cllUDHw;Erreur la deuxèm tentative à aussi échouée !
-tsby5JW2Rh;Le dossier 'Download' est crée !
-cUXjx1OB3X;Erreur de l'éxtraction du fichier !
-seyFfSj6bV;Erreur de supression du fichier ZIP !
+BIRSDlvP1O;Erreur impossible d'ouvrir le fichier. '$ContenuFichier'
+1fYD6L3W2z;Erreur lors de l'exécution du fichier. '$ContenuFichier'
+kJ4QZp2Rav;Deuxième tentative réussie !
+sj5cllUDHw;Erreur, la deuxième tentative a aussi échoué !
+tsby5JW2Rh;Le dossier 'Download' est créé !
+cUXjx1OB3X;Erreur lors de l'extraction du fichier !
+seyFfSj6bV;Erreur de suppression du fichier ZIP !
 K6sqigm9C7;Installation términée
-NTfeTZiOQy;Erreur lord de l'éxecution du fichier '${$batFile.FullName}'
+NTfeTZiOQy;Erreur lors de l'exécution du fichier. '${$batFile.FullName}'
 1hDu7xsNdq;Installation términée
-i7WnTD7KIc;Erreur lord de l'éxecution du fichier '${$heaviestExe.FullName}'
+i7WnTD7KIc;Erreur lors de l'exécution du fichier. '${$heaviestExe.FullName}'
 SkbGerMfZV;Installation términée
-tsBTJm37sv;Erreur lord de l'éxecution du fichier '${$heaviestMsi.FullName}'
+tsBTJm37sv;Erreur lors de l'exécution du fichier. '${$heaviestMsi.FullName}'
 yZgWYP62KQ;Installation términée
-cYGxgRG6QQ;Erreur lord de l'éxecution du fichier '${$heaviestExe.FullName}'
+cYGxgRG6QQ;Erreur lors de l'exécution du fichier. '${$heaviestExe.FullName}'
 kNxH706Deq;Installation términée
-K9bXo3EFrO;Erreur lord de l'éxecution du fichier '${$heaviestMsi.FullName}'
-uUUJ3UlNx1;Erreur a la supression de l'arrchive '$DossierZip'
+K9bXo3EFrO;Erreur lors de l'exécution du fichier. '${$heaviestMsi.FullName}'
+uUUJ3UlNx1;Erreur à la suppression de l'archive. '$DossierZip'
 g6qcKkmYYi;Format du fichier '$extension'
 S2YdGc7tJm;Téléchargement du fichier '$NomFichier'
-NBOBfP3nOm; [Terminée]
+NBOBfP3nOm; [Terminer]
 OsPmKNS8ME; [Erreur]
 RpqJ5260Da;Exécution terminée
 hn3GwfwBB1;Suppression réussie
@@ -133,51 +133,51 @@ AxfygZRJrA;Erreur à l'exécution du fichier '$NomFichier' !
 cLxC3uNE2h;Erreur de l'éxtraction du fichier !
 kBk55wou8c;Erreur de supression du fichier ZIP !
 k5ojVD2ijq;Installation términée
-CpHbYy9d4v;Erreur lord de l'éxecution du fichier '${$batFile.FullName}'
+CpHbYy9d4v;Erreur lors de l'exécution du fichier ! '${$batFile.FullName}'
 MNRJa72zat;Installation términée
-bsIa9hgOq0;Erreur lord de l'éxecution du fichier '${$heaviestExe.FullName}'
+bsIa9hgOq0;Erreur lors de l'exécution du fichier ! '${$heaviestExe.FullName}'
 1oeLf53JgG;Installation términée
-xL0MQWnfIY;Erreur lord de l'éxecution du fichier '${$heaviestMsi.FullName}'
+xL0MQWnfIY;Erreur lors de l'exécution du fichier ! '${$heaviestMsi.FullName}'
 LCIzPTgrc0;Installation términée
-WCXSimfh2Y;Erreur lord de l'éxecution du fichier '${$heaviestExe.FullName}'
+WCXSimfh2Y;Erreur lors de l'exécution du fichier ! '${$heaviestExe.FullName}'
 DfymBwkcGy;Installation términée
-9JSk9tXZCo;Erreur lord de l'éxecution du fichier '${$heaviestMsi.FullName}'
-AIzZIYnRbD;Erreur a la supression de l'arrchive '$DossierZip'
-GMKmz9u9bb;Plusieurs fichier coresponde a votre choi !
+9JSk9tXZCo;Erreur lors de l'exécution du fichier ! '${$heaviestMsi.FullName}'
+AIzZIYnRbD;Erreur à la suppression de l'archive ! '$DossierZip'
+GMKmz9u9bb;Plusieurs fichiers correspondent à votre choix !
 UqimWNuxSy;[$i] ► $chemin[$i]
-PFfNY5pZdm;Etrée le numero corespondent a votre choit !
-ISACsw8pu9;Erreur 10 maximum !
-8X8kTTjMD5;Erreur 0 minimum !
+PFfNY5pZdm;Entrez le numéro correspondant à votre choix !
+ISACsw8pu9;Erreur, 10 maximum !
+8X8kTTjMD5;Erreur, 0 minimum !
 oz9myAq7O4;Séléction : '$ContenuFichier'
-TVfzTBpf4j;Erreur lord de l'appele de la fonction installLocal
-ttjswlpj1S;Internet n'est pas accessible. `nCommand imposible !
-0Ay6NvTXhA;Erreur la commande à échouée !
+TVfzTBpf4j;Erreur lors de l'appel de la fonction, installLocal
+ttjswlpj1S;Internet n'est pas accessible. `nCommande impossible !
+0Ay6NvTXhA;Erreur : la commande a échoué !
 GE9KjBIUch;═══════════════════════════════════════════════════════════════
 4VQytF3LLJ;► Page d'aide de '-upgrade'
 XnUaQFMOAi;Syntaxe : Get-Driver -upgrade 'apply', 'applyold'
 L3L3iotYJu;Paramètre :
-dVHTXetANI;    -upgrade ; Permet d'installer un des driver
-2HMYnduj4d;Valeur example :
+dVHTXetANI;    -upgrade ; Permet d'installer un des drivers.
+2HMYnduj4d;Valeur exemple :
 z3T3VAKXPE;    'applyold'
 WeCapCgACv;Info :
-VLB2qDrxPF;     La commande permet de Metre a joure la list de driver de '-list' et 'serch'
-3Kep5jBN8W;    'applyold' Permet d'applique une recherche de Driveur déja fait
-UWuIvXFvsk;    'apply' execute une recherche de Driver en ligne et les applique à la liste
-6tgIHn1bNR;    La commande sens paramètre va executer une recherche de driveur mai elle ne cera pas ajouté
+VLB2qDrxPF;     La commande permet de mettre à jour la liste des drivers de, '-list' et 'serch'
+3Kep5jBN8W;    'applyold' Permet d'appliquer une recherche de pilotes déjà faite,
+UWuIvXFvsk;    'apply' Exécute une recherche de pilotes en ligne et les applique à la liste.
+6tgIHn1bNR;    La commande sans paramètre va exécuter une recherche de pilotes mais elle ne sera pas ajoutée.
 TWHKKLAWfF;═══════════════════════════════════════════════════════════════
 BSCpb9b3GS;L'URL existe déjà dans le fichier 'url.txt'. Aucune action nécessaire.
-iID4isYFsz;Erreur l'a fonction apply permetent de rajouter les donnée trouvez a échouer !
-3sItsImq6z;Erreur le fichier introuvable utiliser -upgrade 'apply' !
-GvgZCpBmlm;changement automatique du paramètre 'applyold' par 'apply' !
-bSSL7tTZup;Erreur Python n'es pas installer ou n'es pas ajouter au 'Path' !
-3y4HKSSddh;Erreur la tentative d'execution de 'Install.ps1' à échouer !
-5oF6ixln22;Initialisation de la recherche de drivers
+iID4isYFsz;Erreur la fonction 'apply' permettant de rajouter les données trouvées a échoué !
+3sItsImq6z;Erreur le fichier est introuvable. Utilisez -upgrade 'apply' !
+GvgZCpBmlm;Changement automatique du paramètre. 'applyold' par 'apply' !
+bSSL7tTZup;Erreur Python n'est pas installé ou n'est pas ajouté au 'Path' !
+3y4HKSSddh;Erreur la tentative d'exécution de 'Install.ps1' a échoué !
+5oF6ixln22;Initialisation de la recherche de pilotes.
 qveFXkZ6w8;...
-yM5R5S0ZOt;Erreur l'a fonction apply permetent de rajouter les donnée trouvez a échouer !
-XiJDqxNVmJ;Erreur à la récupération de la version locale !
-Iph28HTyuj;Erreur à la récupération de la version distante !
+yM5R5S0ZOt;Erreur la fonction 'apply' permettant de rajouter les données trouvées a échoué !
+XiJDqxNVmJ;Erreur lors de la récupération de la version locale !
+Iph28HTyuj;Erreur lors de la récupération de la version distante !
 5zOUvrjHqs;▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-qMIE4HVlXB;▐ Votre version est inférieure à la nouvelle !
+qMIE4HVlXB;▐ Votre version est inférieure à la nouvelle version disponible !
 OqOAl7whBf;▐ Utilisez la commande '-upgradeGit' pour l'installer.
 VftkiajTeu;▐ Version installée  :
 LPE6lYusCo; '$LocalVersion'
@@ -195,45 +195,45 @@ nYZqE8eA42;═══════════════════════
 RgZu9ptJpm;► Page d'aide de '-version'
 crIYHHEgyN;Syntaxe : Get-Driver -version 
 Wl6kKPhcbY;Paramètre :
-QtK9IHzNOz;    -version ; Permet d'afficher la verssion installée
+QtK9IHzNOz;    -version ; Permet d'afficher la version installée.
 crNuCdL8lw;Valeur example :
 oEVc8pkzjt;    --
 IRsRWtgIP9;Info :
-S0R8uoXLhq;     La commande permet d'afficher la verssion actuelement installer
-Ej0ptLXrBc;     Pour verifier ci une autre verssion est disponible '-updateGit'
+S0R8uoXLhq;     La commande permet d'afficher la version actuellement installée.
+Ej0ptLXrBc;     Pour vérifier si une autre version est disponible. '-updateGit'
 h9oerL96XS;═══════════════════════════════════════════════════════════════
-H546vwcpgJ;Verssion actuel de Get-Drivers :
+H546vwcpgJ;Version actuelle de Get-Drivers :
 gZbMmeXyNB; $versionNumerique
-VRdzn4bukd;Erreur git ne fonctionne pas, vérifiez votre installation ou téléchargez-la. Si l'erreur persiste, installer GIT !
-xqMWXwPbxV;Backup créé !
-81xb7qSNEu;Erreur lors de la création de la sauvegarde.
-YzOg8zbET1;Mise à joure réusit !
+VRdzn4bukd;Erreur git ne fonctionne pas. Vérifiez votre installation ou téléchargez-le. Si l'erreur persiste, installez GIT !
+xqMWXwPbxV;Sauvegarde créée !
+81xb7qSNEu;Erreur survenue lors de la création de la sauvegarde.
+YzOg8zbET1;Mise à jour réussie !
 VrFDW0MEy0;Erreur lors de la mise à jour, récupération en cours !
 O5B1CeeB27;Erreur, la récupération a échoué !
-lOqzE7bqYh;Erreur votre Verssion n'as pas besoin de mise à jour
-UKI6AQvuFH;Entrez -updateGit pour chercher les mis à jour disponible
-dNYOfcyXde;Internet n'est pas accessible. `nCertaine commend peuvent ne pas fonctioner !
+lOqzE7bqYh;Erreur  votre version n'a pas besoin de mise à jour.
+UKI6AQvuFH;Entrez -updateGit pour chercher les mises à jour disponibles.
+dNYOfcyXde;Internet n'est pas accessible. `nCertaines commandes peuvent ne pas fonctionner !
 VZMVPHBQ8Y;La session n'est pas en mode administrateur.
-YgqQfExE1v;Executer le script en Administrateur pour ajouter le chemin du programme
+YgqQfExE1v;Exécutez le script en mode Administrateur pour ajouter le chemin du programme.
 st6vdYzcTm;La session est en mode administrateur.
 IDM3M48wq2;Ajout du répertoire au PATH...
 Pfvqs7hHsb;Le répertoire a été ajouté au PATH.
-dmFW9vmrfD;Aucun parametre entré ! `nEntrez un paramètre example '-help'
+dmFW9vmrfD;Aucun paramètre entré ! `nEntrez un paramètre, par exemple '-help'
 S3bgydGtoN;Erreur n7w2pJ9B
-dNLaMMLpAV;Erreur lord de la récupération du txt a chercher !
+dNLaMMLpAV;Erreur lors de la récupération du txt à chercher !
 r3nv7dfVhb;Erreur 3wrPiS98
 QT7PYwtcn2;Erreur 4G3irtJc
-PD1wLQbpJx;Internet n'est pas accessible. `nCommand imposible !
+PD1wLQbpJx;Internet n'est pas accessible. Commande impossible !
 j7rJVZQpiV;Update términée !
 8uMN7KP5Ba;Erreur T5sj22Gd
-ctBIGoB0kr;Erreur lord de la récupération du txt a chercher !
+ctBIGoB0kr;Erreur lors de la récupération du txt à chercher !
 BzMu1Sly48;Erreur y6F6i6fP
-zTQwNuxte7;Erreur lord de la récupération du txt a chercher !
+zTQwNuxte7;Erreur lors de la récupération du txt à chercher !
 FYb0BdzoEZ;Erreur Z8rPuS91
-lI2Awe6jaO;Erreur lord de la récupération du txt a chercher !
+lI2Awe6jaO;Erreur lors de la récupération du txt à chercher !
 lGEKiKuPRg;Commande términer !
 huHEz1LsL9;Erreur Z88Pll91
 GQeCXraQAt;Erreur yf5Eg7C2
-xNTPV9TQS0;Erreur yf5Eg7C2
-sjXi10ByL4;Internet n'est pas accessible. `nCommand imposible !
+xNTPV9TQS0;Erreur yW59g9r2
+sjXi10ByL4;Internet n'est pas accessible. Commande impossible !
 SOXaIVlBw0;Erreur BfUEg6h2
