@@ -1,4 +1,5 @@
-# Get-Drivers V : 0.1.1
+
+<button class="bouton-lang">Francais</button> <button class="bouton-lang">English</button> <button class="bouton-lang">Español</button>
 -------------
 - # Compatible avec : <button class="bouton-w">Windows 10</button>  <button class="bouton-p">Powershell 5</button> <button class="bouton-py">Python 3.11.4</button>
 -------------
