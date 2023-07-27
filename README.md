@@ -33,14 +33,14 @@
 
 # Commande à copier coler dans un terminal Administrateur Powershell
 
-     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip"
-     $destinationFolder = "$env:USERPROFILE"
-     cd "$destinationFolder"
-     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
-     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-     Remove-Item "Get-Drivers.zip"
-     Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur
+     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip";
+     $destinationFolder = "$env:USERPROFILE";
+     cd "$destinationFolder";
+     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip";
+     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
+     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
+     Remove-Item "Get-Drivers.zip";
+     Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 -------------
@@ -79,14 +79,14 @@
 
 # Command to copy and paste into a Administrator Powershell terminal
 
-     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip"
-     $destinationFolder = "$env:USERPROFILE"
-     cd "$destinationFolder"
-     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
-     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-     Remove-Item "Get-Drivers.zip"
-     Set-ExecutionPolicy UnRestricted -Force # Requires Administrator rights
+     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip";
+     $destinationFolder = "$env:USERPROFILE";
+     cd "$destinationFolder";
+     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip";
+     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
+     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
+     Remove-Item "Get-Drivers.zip";
+     Set-ExecutionPolicy UnRestricted -Force # Requires Administrator rights;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 -------------
@@ -125,14 +125,14 @@
 
 # Commande à copier coler dans un terminal Administrateur Powershell
 
-     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip"
-     $destinationFolder = "$env:USERPROFILE"
-     cd "$destinationFolder"
-     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip"
-     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
-     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
-     Remove-Item "Get-Drivers.zip"
-     Set-ExecutionPolicy UnRestricted -Force # Necesita derechos de Administrador
+     $archiveUrl = "https://github.com/00MY00/Get-Drivers/archive/main.zip";
+     $destinationFolder = "$env:USERPROFILE";
+     cd "$destinationFolder";
+     Invoke-WebRequest -Uri $archiveUrl -OutFile "$destinationFolder\Get-Drivers.zip";
+     Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
+     Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
+     Remove-Item "Get-Drivers.zip";
+     Set-ExecutionPolicy UnRestricted -Force # Necesita derechos de Administrador;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 
