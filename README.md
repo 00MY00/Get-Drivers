@@ -19,7 +19,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
-- Set-ExecutionPolicy UnRestricted -Force
+- Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
 - Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 -------------
 
@@ -40,7 +40,7 @@
      Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
      Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
      Remove-Item "Get-Drivers.zip";
-     Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur;
+     Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 -------------
@@ -65,7 +65,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
-- Set-ExecutionPolicy UnRestricted -Force
+- Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
 - Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 -------------
 
@@ -86,7 +86,7 @@
      Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
      Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
      Remove-Item "Get-Drivers.zip";
-     Set-ExecutionPolicy UnRestricted -Force # Requires Administrator rights;
+     Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 -------------
@@ -111,7 +111,7 @@
 - Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder
 - Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers"
 - Remove-Item "Get-Drivers.zip"
-- Set-ExecutionPolicy UnRestricted -Force
+- Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
 - Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 -------------
 
@@ -132,7 +132,7 @@
      Expand-Archive -Path "$destinationFolder\Get-Drivers.zip" -DestinationPath $destinationFolder;
      Rename-Item -Path ".\Get-Drivers-main" -NewName ".\Get-Drivers";
      Remove-Item "Get-Drivers.zip";
-     Set-ExecutionPolicy UnRestricted -Force # Necesita derechos de Administrador;
+     Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""Set-ExecutionPolicy UnRestricted -Force # Nécécite drois Administrateur""" -Verb RunAs;
      Start-Process -FilePath "powershell.exe" -ArgumentList "-File ""$destinationFolder\Get-Drivers\Install.ps1""" -Verb RunAs
 
 
