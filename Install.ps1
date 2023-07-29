@@ -105,6 +105,7 @@ if ($wingetInstalled -eq "y") {
         Write-Host "Une erreur s'est produite lors de l'installation de Git." -ForegroundColor Red
     }
 
+    $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
 
 }
 
@@ -133,7 +134,7 @@ if ($wingetInstalled -eq "n") {
     }
 
     $PYTHON_URL = "https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe"
-    $INSTALLER_FILENAME = "python_installer.exe"
+    $INSTALLER_FILENAME = ".\python_installer.exe"
 
     # Vérifier si le fichier d'installation existe déjà
     if (Test-Path $INSTALLER_FILENAME) {
@@ -146,7 +147,7 @@ if ($wingetInstalled -eq "n") {
 
     Write-Host "Installation de Python en cours" -NoNewline -ForegroundColor Magenta
     Write-Host "..." -ForegroundColor Cyan
-    $null = Start-Process -FilePath $INSTALLER_FILENAME -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -Wait
+    Start-Process -FilePath $INSTALLER_FILENAME -ArgumentList "/passive" -Wait -NoNewWindow
 
     # Mettre à jour le chemin d'accès actuel pour cette session
     $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
