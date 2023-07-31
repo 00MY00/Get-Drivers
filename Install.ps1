@@ -80,7 +80,7 @@ if ($wingetInstalled -eq "y") {
     if (!$?) {
         Write-Host "Git n'est pas installé !" -ForegroundColor Yellow
         # Installation de Git avec Winget
-        winget install "Git" --scope=machine --accept-package-agreements --silent
+        winget install "Git.Git" --scope=machine --accept-package-agreements --silent
         $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH", "User")
 
     } else {
